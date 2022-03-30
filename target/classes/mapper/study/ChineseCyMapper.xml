@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.ChineseCyMapper">
+    
+    <resultMap type="ChineseCy" id="ChineseCyResult">
+        <result property="id"    column="ID"    />
+        <result property="name"    column="name"    />
+        <result property="spell"    column="spell"    />
+        <result property="content"    column="content"    />
+        <result property="derivation"    column="derivation"    />
+        <result property="samples"    column="samples"    />
+        <result property="type"    column="type"    />
+    </resultMap>
+
+    <sql id="selectChineseCyVo">
+        select ID, name, spell, content, derivation, samples, type from chinese_cy
+    </sql>
+
+    <select id="selectChineseCyList" parameterType="ChineseCy" resultMap="ChineseCyResult">
+        <include refid="selectChineseCyVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="spell != null  and spell != ''"> and spell = #{spell}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="derivation != null  and derivation != ''"> and derivation = #{derivation}</if>
+            <if test="samples != null  and samples != ''"> and samples = #{samples}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+        </where>
+    </select>
+    
+    <select id="selectChineseCyById" parameterType="Long" resultMap="ChineseCyResult">
+        <include refid="selectChineseCyVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertChineseCy" parameterType="ChineseCy">
+        insert into chinese_cy
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">ID,</if>
+            <if test="name != null">name,</if>
+            <if test="spell != null">spell,</if>
+            <if test="content != null">content,</if>
+            <if test="derivation != null">derivation,</if>
+            <if test="samples != null">samples,</if>
+            <if test="type != null">type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="spell != null">#{spell},</if>
+            <if test="content != null">#{content},</if>
+            <if test="derivation != null">#{derivation},</if>
+            <if test="samples != null">#{samples},</if>
+            <if test="type != null">#{type},</if>
+         </trim>
+    </insert>
+
+    <update id="updateChineseCy" parameterType="ChineseCy">
+        update chinese_cy
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="spell != null">spell = #{spell},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="derivation != null">derivation = #{derivation},</if>
+            <if test="samples != null">samples = #{samples},</if>
+            <if test="type != null">type = #{type},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteChineseCyById" parameterType="Long">
+        delete from chinese_cy where ID = #{id}
+    </delete>
+
+    <delete id="deleteChineseCyByIds" parameterType="String">
+        delete from chinese_cy where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
