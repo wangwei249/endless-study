@@ -2,6 +2,7 @@ package com.jeethink.study.mapper;
 
 import java.util.List;
 import com.jeethink.study.domain.ChineseCy;
+import org.springframework.stereotype.Component;
 
 /**
  * 语文成语词典Mapper接口

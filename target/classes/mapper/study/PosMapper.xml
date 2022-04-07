@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.PosMapper">
+    
+    <resultMap type="Pos" id="PosResult">
+        <result property="id"    column="ID"    />
+        <result property="name"    column="name"    />
+        <result property="means"    column="means"    />
+    </resultMap>
+
+    <sql id="selectPosVo">
+        select ID, name, means from pos
+    </sql>
+
+    <select id="selectPosList" parameterType="Pos" resultMap="PosResult">
+        <include refid="selectPosVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="means != null  and means != ''"> and means = #{means}</if>
+        </where>
+    </select>
+    
+    <select id="selectPosById" parameterType="Integer" resultMap="PosResult">
+        <include refid="selectPosVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertPos" parameterType="Pos" useGeneratedKeys="true" keyProperty="id">
+        insert into pos
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="means != null">means,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="means != null">#{means},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePos" parameterType="Pos">
+        update pos
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="means != null">means = #{means},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deletePosById" parameterType="Integer">
+        delete from pos where ID = #{id}
+    </delete>
+
+    <delete id="deletePosByIds" parameterType="String">
+        delete from pos where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

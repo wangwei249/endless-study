@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.MeansMapper">
+    
+    <resultMap type="Means" id="MeansResult">
+        <result property="wordid"    column="wordID"    />
+        <result property="posid"    column="posID"    />
+        <result property="means"    column="means"    />
+    </resultMap>
+
+    <sql id="selectMeansVo">
+        select wordID, posID, means from means
+    </sql>
+
+    <select id="selectMeansList" parameterType="Means" resultMap="MeansResult">
+        <include refid="selectMeansVo"/>
+        <where>  
+            <if test="wordid != null "> and wordID = #{wordid}</if>
+            <if test="posid != null "> and posID = #{posid}</if>
+            <if test="means != null  and means != ''"> and means = #{means}</if>
+        </where>
+    </select>
+    
+    <select id="selectMeansById" parameterType="Long" resultMap="MeansResult">
+        <include refid="selectMeansVo"/>
+        where wordID = #{wordid}
+    </select>
+        
+    <insert id="insertMeans" parameterType="Means">
+        insert into means
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="wordid != null">wordID,</if>
+            <if test="posid != null">posID,</if>
+            <if test="means != null">means,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="wordid != null">#{wordid},</if>
+            <if test="posid != null">#{posid},</if>
+            <if test="means != null">#{means},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMeans" parameterType="Means">
+        update means
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="posid != null">posID = #{posid},</if>
+            <if test="means != null">means = #{means},</if>
+        </trim>
+        where wordID = #{wordid}
+    </update>
+
+    <delete id="deleteMeansById" parameterType="Long">
+        delete from means where wordID = #{wordid}
+    </delete>
+
+    <delete id="deleteMeansByIds" parameterType="String">
+        delete from means where wordID in 
+        <foreach item="wordid" collection="array" open="(" separator="," close=")">
+            #{wordid}
+        </foreach>
+    </delete>
+    
+</mapper>

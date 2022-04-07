@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.WordsMapper">
+    
+    <resultMap type="Words" id="WordsResult">
+        <result property="id"    column="ID"    />
+        <result property="word"    column="word"    />
+        <result property="exchange"    column="exchange"    />
+        <result property="voice"    column="voice"    />
+        <result property="times"    column="times"    />
+    </resultMap>
+
+    <sql id="selectWordsVo">
+        select ID, word, exchange, voice, times from words
+    </sql>
+
+    <select id="selectWordsList" parameterType="Words" resultMap="WordsResult">
+        <include refid="selectWordsVo"/>
+        <where>  
+            <if test="word != null  and word != ''"> and word = #{word}</if>
+            <if test="exchange != null  and exchange != ''"> and exchange = #{exchange}</if>
+            <if test="voice != null  and voice != ''"> and voice = #{voice}</if>
+            <if test="times != null "> and times = #{times}</if>
+        </where>
+    </select>
+    
+    <select id="selectWordsById" parameterType="Long" resultMap="WordsResult">
+        <include refid="selectWordsVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertWords" parameterType="Words" useGeneratedKeys="true" keyProperty="id">
+        insert into words
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="word != null and word != ''">word,</if>
+            <if test="exchange != null">exchange,</if>
+            <if test="voice != null">voice,</if>
+            <if test="times != null">times,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="word != null and word != ''">#{word},</if>
+            <if test="exchange != null">#{exchange},</if>
+            <if test="voice != null">#{voice},</if>
+            <if test="times != null">#{times},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWords" parameterType="Words">
+        update words
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="word != null and word != ''">word = #{word},</if>
+            <if test="exchange != null">exchange = #{exchange},</if>
+            <if test="voice != null">voice = #{voice},</if>
+            <if test="times != null">times = #{times},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteWordsById" parameterType="Long">
+        delete from words where ID = #{id}
+    </delete>
+
+    <delete id="deleteWordsByIds" parameterType="String">
+        delete from words where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
