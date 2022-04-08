@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.NewWordsMapper">
+    
+    <resultMap type="NewWords" id="NewWordsResult">
+        <result property="id"    column="ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="wordId"    column="WORD_ID"    />
+        <result property="status"    column="STATUS"    />
+        <result property="wrongTimes"    column="WRONG_TIMES"    />
+        <result property="rightTimes"    column="RIGHT_TIMES"    />
+        <result property="lastRigthTime"    column="LAST_RIGTH_TIME"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectNewWordsVo">
+        select ID, USER_ID, WORD_ID, STATUS, WRONG_TIMES, RIGHT_TIMES, LAST_RIGTH_TIME, create_by, create_time, update_by, update_time, remark from new_words
+    </sql>
+
+    <select id="selectNewWordsList" parameterType="NewWords" resultMap="NewWordsResult">
+        <include refid="selectNewWordsVo"/>
+        <where>  
+            <if test="userId != null "> and USER_ID = #{userId}</if>
+            <if test="wordId != null "> and WORD_ID = #{wordId}</if>
+            <if test="status != null  and status != ''"> and STATUS = #{status}</if>
+            <if test="wrongTimes != null "> and WRONG_TIMES = #{wrongTimes}</if>
+            <if test="rightTimes != null "> and RIGHT_TIMES = #{rightTimes}</if>
+            <if test="lastRigthTime != null "> and LAST_RIGTH_TIME = #{lastRigthTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectNewWordsById" parameterType="Long" resultMap="NewWordsResult">
+        <include refid="selectNewWordsVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertNewWords" parameterType="NewWords" useGeneratedKeys="true" keyProperty="id">
+        insert into new_words
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="wordId != null">WORD_ID,</if>
+            <if test="status != null">STATUS,</if>
+            <if test="wrongTimes != null">WRONG_TIMES,</if>
+            <if test="rightTimes != null">RIGHT_TIMES,</if>
+            <if test="lastRigthTime != null">LAST_RIGTH_TIME,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="wordId != null">#{wordId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="wrongTimes != null">#{wrongTimes},</if>
+            <if test="rightTimes != null">#{rightTimes},</if>
+            <if test="lastRigthTime != null">#{lastRigthTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNewWords" parameterType="NewWords">
+        update new_words
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">USER_ID = #{userId},</if>
+            <if test="wordId != null">WORD_ID = #{wordId},</if>
+            <if test="status != null">STATUS = #{status},</if>
+            <if test="wrongTimes != null">WRONG_TIMES = #{wrongTimes},</if>
+            <if test="rightTimes != null">RIGHT_TIMES = #{rightTimes},</if>
+            <if test="lastRigthTime != null">LAST_RIGTH_TIME = #{lastRigthTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteNewWordsById" parameterType="Long">
+        delete from new_words where ID = #{id}
+    </delete>
+
+    <delete id="deleteNewWordsByIds" parameterType="String">
+        delete from new_words where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
