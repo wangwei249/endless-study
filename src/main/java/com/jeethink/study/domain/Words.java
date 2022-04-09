@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import com.jeethink.common.core.annotation.Excel;
 import com.jeethink.common.core.web.domain.BaseEntity;
 
+import java.util.List;
+
 /**
  * 英语单词对象 words
  * 
@@ -33,6 +35,11 @@ public class Words extends BaseEntity
     /** 时长 */
     @Excel(name = "时长")
     private Long times;
+
+
+    /** 含义列表 */
+    private List<Means> meansList;
+
 
     public void setId(Long id) 
     {
@@ -89,5 +96,13 @@ public class Words extends BaseEntity
             .append("voice", getVoice())
             .append("times", getTimes())
             .toString();
+    }
+
+    public List<Means> getMeansList() {
+        return meansList;
+    }
+
+    public void setMeansList(List<Means> meansList) {
+        this.meansList = meansList;
     }
 }

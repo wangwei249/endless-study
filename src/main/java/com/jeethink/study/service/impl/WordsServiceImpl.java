@@ -90,4 +90,16 @@ public class WordsServiceImpl implements IWordsService
     {
         return wordsMapper.deleteWordsById(id);
     }
+
+    /**
+     * 查询英语单词列表
+     *
+     * @param words 英语单词
+     * @return 英语单词
+     */
+    @Override
+    public List<Words> selectWordsListSuggest(Words words)
+    {
+        return wordsMapper.selectWordsListSuggest(words);
+    }
 }

@@ -23,9 +23,21 @@ public class Means extends BaseEntity
     @Excel(name = "词性ID")
     private Integer posid;
 
+
+    /** 词性代码 【外联表】 */
+    @Excel(name = "词性代码")
+    private String posName;
+    /** 词性含义 【外联表】 */
+    @Excel(name = "词性含义")
+    private String posMean;
+
+
+
     /** 中文含义 */
     @Excel(name = "中文含义")
     private String means;
+
+
 
     public void setWordid(Long wordid) 
     {
@@ -62,5 +74,23 @@ public class Means extends BaseEntity
             .append("posid", getPosid())
             .append("means", getMeans())
             .toString();
+    }
+
+
+
+    public String getPosName() {
+        return posName;
+    }
+
+    public void setPosName(String posName) {
+        this.posName = posName;
+    }
+
+    public String getPosMean() {
+        return posMean;
+    }
+
+    public void setPosMean(String posMean) {
+        this.posMean = posMean;
     }
 }

@@ -102,4 +102,20 @@ public class WordsController extends BaseController
     {
         return toAjax(wordsService.deleteWordsByIds(ids));
     }
+
+
+
+    /**
+     * 查询英语单词列表【suggest查询，只取前五条】
+     */
+//    @PreAuthorize(hasPermi = "study:englishWords:list")
+    @GetMapping("/listSuggest")
+    public TableDataInfo listSuggest(Words words)
+    {
+        startPage();
+        List<Words> list = wordsService.selectWordsListSuggest(words);
+        return getDataTable(list);
+    }
+
+
 }

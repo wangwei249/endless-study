@@ -25,7 +25,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="times != null "> and times = #{times}</if>
         </where>
     </select>
-    
+
+
+
+    <resultMap type="Words" id="WordsResultSuggest">
+        <result property="id"    column="ID"    />
+        <result property="word"    column="word"    />
+        <result property="exchange"    column="exchange"    />
+        <result property="voice"    column="voice"    />
+        <result property="times"    column="times"    />
+        <collection property="meansList" column="id" javaType="ArrayList"
+                    ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
+    </resultMap>
+    <sql id="selectWordsVoSuggest">
+        select ID, word, exchange, voice, times from words
+    </sql>
+
+    <select id="selectWordsListSuggest" parameterType="Words" resultMap="WordsResultSuggest">
+        <include refid="selectWordsVoSuggest"/>
+        <where>
+            <if test="word != null  and word != ''"> and word like concat(#{word}, '%') </if>
+        </where>
+        limit  5
+    </select>
+
+    <resultMap type="Means" id="MeansByWordIDResultMap">
+        <result property="posName"    column="posName"    />
+        <result property="posMean"    column="posMean"    />
+        <result property="means"    column="means"    />
+    </resultMap>
+    <select id="getMeansByWordID" resultMap="MeansByWordIDResultMap" parameterType="java.lang.Integer" >
+          SELECT
+              p.`name` AS posName,
+              p.`means` AS posMean,
+              m.`means` AS means
+              FROM  means m
+              LEFT JOIN pos p ON m.`posID` = p.`ID`
+              WHERE m.`wordID` = #{id}
+              ORDER BY  p.`ID`
+    </select>
+
+
+
+
+
     <select id="selectWordsById" parameterType="Long" resultMap="WordsResult">
         <include refid="selectWordsVo"/>
         where ID = #{id}

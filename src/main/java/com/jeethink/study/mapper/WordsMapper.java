@@ -58,4 +58,12 @@ public interface WordsMapper
      * @return 结果
      */
     public int deleteWordsByIds(Long[] ids);
+
+    /**
+     * 查询英语单词列表
+     *
+     * @param words 英语单词
+     * @return 英语单词集合
+     */
+    public List<Words> selectWordsListSuggest(Words words);
 }

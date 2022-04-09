@@ -162,7 +162,7 @@
                 <version>${jeethink.version}</version>
             </dependency>
 
-            <!-- 安全模块 -->
+            <!-- 安全模块-->
             <dependency>
                 <groupId>com.jeethink</groupId>
                 <artifactId>jeethink-common-security</artifactId>
