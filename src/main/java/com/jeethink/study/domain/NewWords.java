@@ -45,6 +45,14 @@ public class NewWords extends BaseEntity
     @Excel(name = "上一次正确时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date lastRigthTime;
 
+
+    /**新增关联表数据*/
+    /** 单词 */
+    @Excel(name = "单词")
+    private String word;
+
+
+
     public void setId(Long id) 
     {
         this.id = id;
@@ -125,5 +133,13 @@ public class NewWords extends BaseEntity
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
             .toString();
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
     }
 }

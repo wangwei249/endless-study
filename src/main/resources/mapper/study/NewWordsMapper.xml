@@ -17,10 +17,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateBy"    column="update_by"    />
         <result property="updateTime"    column="update_time"    />
         <result property="remark"    column="remark"    />
+        <result property="word"    column="word"    />
     </resultMap>
 
     <sql id="selectNewWordsVo">
-        select ID, USER_ID, WORD_ID, STATUS, WRONG_TIMES, RIGHT_TIMES, LAST_RIGTH_TIME, create_by, create_time, update_by, update_time, remark from new_words
+        SELECT
+          n.ID,
+          n.USER_ID,
+          n.WORD_ID,
+          n.STATUS,
+          n.WRONG_TIMES,
+          n.RIGHT_TIMES,
+          n.LAST_RIGTH_TIME,
+          n.create_by,
+          n.create_time,
+          n.update_by,
+          n.update_time,
+          n.remark,
+          w.`word`
+          FROM new_words n
+           LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
     </sql>
 
     <select id="selectNewWordsList" parameterType="NewWords" resultMap="NewWordsResult">
