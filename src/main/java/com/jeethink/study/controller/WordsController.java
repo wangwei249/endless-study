@@ -112,7 +112,7 @@ public class WordsController extends BaseController
     @GetMapping("/listSuggest")
     public TableDataInfo listSuggest(Words words)
     {
-        startPage();
+        //startPage();
         List<Words> list = wordsService.selectWordsListSuggest(words);
         return getDataTable(list);
     }
