@@ -55,6 +55,64 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectNewWordsVo"/>
         where ID = #{id}
     </select>
+
+
+
+
+    <resultMap type="NewWords" id="NewWordsRandomResult">
+        <result property="id"    column="ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="wordId"    column="WORD_ID"    />
+        <result property="status"    column="STATUS"    />
+        <result property="wrongTimes"    column="WRONG_TIMES"    />
+        <result property="rightTimes"    column="RIGHT_TIMES"    />
+        <result property="lastRigthTime"    column="LAST_RIGTH_TIME"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="word"    column="word"    />
+        <collection property="meansList" column="WORD_ID" javaType="ArrayList"
+                    ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
+    </resultMap>
+    <select id="selectNewWordsRandomList" parameterType="NewWords" resultMap="NewWordsRandomResult">
+             SELECT
+                  n.ID,
+                  n.USER_ID,
+                  n.WORD_ID,
+                  n.STATUS,
+                  n.WRONG_TIMES,
+                  n.RIGHT_TIMES,
+                  n.LAST_RIGTH_TIME,
+                  n.create_by,
+                  n.create_time,
+                  n.update_by,
+                  n.update_time,
+                  n.remark,
+                  w.`word`
+            FROM new_words n
+              LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
+              ORDER BY RAND() LIMIT 1
+    </select>
+    <resultMap type="Means" id="MeansByWordIDResultMap">
+        <result property="posName"    column="posName"    />
+        <result property="posMean"    column="posMean"    />
+        <result property="means"    column="means"    />
+    </resultMap>
+    <select id="getMeansByWordID" resultMap="MeansByWordIDResultMap" parameterType="java.lang.Integer" >
+          SELECT
+              p.`name` AS posName,
+              p.`means` AS posMean,
+              m.`means` AS means
+              FROM  means m
+              LEFT JOIN pos p ON m.`posID` = p.`ID`
+              WHERE m.`wordID` = #{WORD_ID}
+              ORDER BY  p.`ID`
+    </select>
+
+
+
         
     <insert id="insertNewWords" parameterType="NewWords" useGeneratedKeys="true" keyProperty="id">
         insert into new_words

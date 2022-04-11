@@ -44,6 +44,19 @@ public class NewWordsServiceImpl implements INewWordsService
         return newWordsMapper.selectNewWordsList(newWords);
     }
 
+
+    /**
+     * 查询生词列表
+     *
+     * @param newWords 生词
+     * @return 生词
+     */
+    @Override
+    public List<NewWords> selectNewWordsRandomList(NewWords newWords)
+    {
+        return newWordsMapper.selectNewWordsRandomList(newWords);
+    }
+
     /**
      * 新增生词
      * 

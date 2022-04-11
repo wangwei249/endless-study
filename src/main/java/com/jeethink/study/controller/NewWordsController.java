@@ -48,6 +48,18 @@ public class NewWordsController extends BaseController
     }
 
     /**
+     * 查询生词列表【随机一条】
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/listRandom")
+    public TableDataInfo listRandom(NewWords newWords)
+    {
+        startPage();
+        List<NewWords> list = newWordsService.selectNewWordsRandomList(newWords);
+        return getDataTable(list);
+    }
+
+    /**
      * 导出生词列表
      */
     @PreAuthorize(hasPermi = "study:newWords:export")

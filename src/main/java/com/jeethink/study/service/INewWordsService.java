@@ -28,6 +28,14 @@ public interface INewWordsService
     public List<NewWords> selectNewWordsList(NewWords newWords);
 
     /**
+     * 查询生词列表
+     *
+     * @param newWords 生词
+     * @return 生词集合
+     */
+    public List<NewWords> selectNewWordsRandomList(NewWords newWords);
+
+    /**
      * 新增生词
      * 
      * @param newWords 生词

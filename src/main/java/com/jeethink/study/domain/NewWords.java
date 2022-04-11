@@ -1,6 +1,8 @@
 package com.jeethink.study.domain;
 
 import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -51,6 +53,8 @@ public class NewWords extends BaseEntity
     @Excel(name = "单词")
     private String word;
 
+    /** 含义列表 */
+    private List<Means> meansList;
 
 
     public void setId(Long id) 
@@ -141,5 +145,13 @@ public class NewWords extends BaseEntity
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public List<Means> getMeansList() {
+        return meansList;
+    }
+
+    public void setMeansList(List<Means> meansList) {
+        this.meansList = meansList;
     }
 }

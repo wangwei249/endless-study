@@ -21,11 +21,19 @@ public interface NewWordsMapper
 
     /**
      * 查询生词列表
-     * 
+     *
      * @param newWords 生词
      * @return 生词集合
      */
     public List<NewWords> selectNewWordsList(NewWords newWords);
+
+    /**
+     * 查询生词列表
+     *
+     * @param newWords 生词
+     * @return 生词集合
+     */
+    public List<NewWords> selectNewWordsRandomList(NewWords newWords);
 
     /**
      * 新增生词

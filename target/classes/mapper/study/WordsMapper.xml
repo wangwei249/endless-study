@@ -44,10 +44,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectWordsListSuggest" parameterType="Words" resultMap="WordsResultSuggest">
         <include refid="selectWordsVoSuggest"/>
         <where>
-            <if test="word != null  and word != ''"> and word like concat(#{word}, '%') </if>
+            <if test="word != null  and word != '' and word != 'RD3'"> and word like concat(#{word}, '%') </if>
+            limit  5
         </where>
-        limit  5
+
     </select>
+
 
     <resultMap type="Means" id="MeansByWordIDResultMap">
         <result property="posName"    column="posName"    />
