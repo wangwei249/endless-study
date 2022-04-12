@@ -93,6 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                   w.`word`
             FROM new_words n
               LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
+              WHERE n.STATUS = 'S'
               ORDER BY RAND() LIMIT 1
     </select>
     <resultMap type="Means" id="MeansByWordIDResultMap">

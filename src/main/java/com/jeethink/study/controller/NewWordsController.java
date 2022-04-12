@@ -54,7 +54,7 @@ public class NewWordsController extends BaseController
     @GetMapping("/listRandom")
     public TableDataInfo listRandom(NewWords newWords)
     {
-        startPage();
+        //startPage();
         List<NewWords> list = newWordsService.selectNewWordsRandomList(newWords);
         return getDataTable(list);
     }
