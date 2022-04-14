@@ -1,8 +1,12 @@
 package com.jeethink.study.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+
+import com.jeethink.study.domain.NewWords;
+import com.jeethink.study.service.INewWordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +38,9 @@ public class NewWordsRecordsController extends BaseController
 {
     @Autowired
     private INewWordsRecordsService newWordsRecordsService;
+
+    @Autowired
+    private INewWordsService newWordsService;
 
     /**
      * 查询生词练习记录列表
@@ -78,6 +85,16 @@ public class NewWordsRecordsController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody NewWordsRecords newWordsRecords)
     {
+        //更新newWords表中的正确次数数据
+        NewWords newWords = newWordsService.selectNewWordsById(newWordsRecords.getNewWordsId());
+        if("success".equals(newWordsRecords.getResult())){
+            newWords.setRightTimes(newWords.getRightTimes()+1);
+            newWords.setLastRigthTime(new Date());
+        }else{
+            newWords.setWrongTimes(newWords.getWrongTimes()+1);
+        }
+        newWordsService.updateNewWords(newWords);
+
         return toAjax(newWordsRecordsService.insertNewWordsRecords(newWordsRecords));
     }
 

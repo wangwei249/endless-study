@@ -56,6 +56,9 @@ public class NewWords extends BaseEntity
     /** 含义列表 */
     private List<Means> meansList;
 
+    /** 练习结果 */
+    private String correct;
+
 
     public void setId(Long id) 
     {
@@ -153,5 +156,14 @@ public class NewWords extends BaseEntity
 
     public void setMeansList(List<Means> meansList) {
         this.meansList = meansList;
+    }
+
+
+    public String getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(String correct) {
+        this.correct = correct;
     }
 }
