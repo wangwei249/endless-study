@@ -42,18 +42,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectNewWordsList" parameterType="NewWords" resultMap="NewWordsResult">
         <include refid="selectNewWordsVo"/>
         <where>  
-            <if test="userId != null "> and USER_ID = #{userId}</if>
-            <if test="wordId != null "> and WORD_ID = #{wordId}</if>
-            <if test="status != null  and status != ''"> and STATUS = #{status}</if>
-            <if test="wrongTimes != null "> and WRONG_TIMES = #{wrongTimes}</if>
-            <if test="rightTimes != null "> and RIGHT_TIMES = #{rightTimes}</if>
-            <if test="lastRigthTime != null "> and LAST_RIGTH_TIME = #{lastRigthTime}</if>
+            <if test="userId != null "> and n.USER_ID = #{userId}</if>
+            <if test="wordId != null "> and n.WORD_ID = #{wordId}</if>
+            <if test="status != null  and status != ''"> and n.STATUS = #{status}</if>
+            <if test="wrongTimes != null "> and n.WRONG_TIMES = #{wrongTimes}</if>
+            <if test="rightTimes != null "> and n.RIGHT_TIMES = #{rightTimes}</if>
+            <if test="lastRigthTime != null "> and n.LAST_RIGTH_TIME = #{lastRigthTime}</if>
         </where>
     </select>
     
     <select id="selectNewWordsById" parameterType="Long" resultMap="NewWordsResult">
         <include refid="selectNewWordsVo"/>
-        where ID = #{id}
+        where n.ID = #{id}
     </select>
 
 
