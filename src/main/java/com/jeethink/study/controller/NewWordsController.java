@@ -67,8 +67,8 @@ public class NewWordsController extends BaseController
      * 查询生词汇总信息
      */
     //@PreAuthorize(hasPermi = "study:newWords:list")
-    @GetMapping("/selectNewWordsCollect")
-    public NewWordsCollect selectNewWordsCollect(String userId)
+    @GetMapping("/selectNewWordsCollect/{userId}")
+    public NewWordsCollect selectNewWordsCollect(@PathVariable("userId") Long userId)
     {
         //startPage();
         NewWordsCollect newWordsCollect = newWordsService.selectNewWordsCollect(Long.valueOf(userId));

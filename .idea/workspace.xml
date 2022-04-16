@@ -4,10 +4,6 @@
     <list default="true" id="e5f9f0fa-12e8-456e-a15e-00572cd4be3d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +17,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="331">
               <caret line="72" column="22" lean-forward="true" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
             </state>
           </provider>
@@ -321,7 +317,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650100312969" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650101405222" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -389,7 +385,7 @@
       <workItem from="1649770292194" duration="1745000" />
       <workItem from="1649945950496" duration="4160000" />
       <workItem from="1650029113966" duration="593000" />
-      <workItem from="1650074294663" duration="3753000" />
+      <workItem from="1650074294663" duration="4041000" />
     </task>
     <task id="LOCAL-00001" summary="suggest word 提交2">
       <created>1649690173147</created>
@@ -426,14 +422,22 @@
       <option name="project" value="LOCAL" />
       <updated>1649948752580</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="生词统计功能">
+      <created>1650101063234</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650101063234</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47731000" />
+    <option name="totallyTimeSpent" value="48019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1930295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -446,7 +450,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24022347" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29608938" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27234638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -477,7 +481,8 @@
     <MESSAGE value="suggest word 提交2" />
     <MESSAGE value="练习生词记录后台代码提交" />
     <MESSAGE value="练习生词记录后台代码提交2" />
-    <option name="LAST_COMMIT_MESSAGE" value="练习生词记录后台代码提交2" />
+    <MESSAGE value="生词统计功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="生词统计功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,7 +833,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
+        <state relative-caret-position="331">
           <caret line="72" column="22" lean-forward="true" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
         </state>
       </provider>
