@@ -114,6 +114,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
+    <resultMap type="NewWordsCollect" id="SelectNewWordsCollectResultMap">
+        <result property="userId"    column="USER_ID"    />
+        <result property="allNum"    column="all_num"    />
+        <result property="passNum"    column="pass_num"    />
+        <result property="aliveNum"    column="alive_num"    />
+    </resultMap>
+    <select id="selectNewWordsCollect" parameterType="Long" resultMap="SelectNewWordsCollectResultMap">
+     <![CDATA[
+        SELECT
+        n.`USER_ID`,
+        COUNT(1) all_num,
+        SUM(CASE WHEN n.`RIGHT_TIMES`>=3 THEN 1 END) AS pass_num,
+        SUM(CASE WHEN n.`RIGHT_TIMES`< 3 THEN 1 END) AS alive_num
+        FROM new_words n
+        WHERE n.USER_ID = #{userId}
+        GROUP BY n.`USER_ID`
+
+        ]]>
+    </select>
+
         
     <insert id="insertNewWords" parameterType="NewWords" useGeneratedKeys="true" keyProperty="id">
         insert into new_words

@@ -1,7 +1,10 @@
 package com.jeethink.study.service;
 
 import java.util.List;
+import java.util.Map;
+
 import com.jeethink.study.domain.NewWords;
+import com.jeethink.study.domain.assist.NewWordsCollect;
 
 /**
  * 生词Service接口
@@ -34,6 +37,14 @@ public interface INewWordsService
      * @return 生词集合
      */
     public List<NewWords> selectNewWordsRandomList(NewWords newWords);
+
+    /**
+     * 查询生词汇总信息
+     *
+     * @param userId 生词
+     * @return 【总数，已消灭，未消灭】
+     */
+    public NewWordsCollect selectNewWordsCollect(long userId);
 
     /**
      * 新增生词

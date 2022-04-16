@@ -1,7 +1,10 @@
 package com.jeethink.study.service.impl;
 
 import java.util.List;
+import java.util.Map;
+
 import com.jeethink.common.core.utils.DateUtils;
+import com.jeethink.study.domain.assist.NewWordsCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.jeethink.study.mapper.NewWordsMapper;
@@ -55,6 +58,18 @@ public class NewWordsServiceImpl implements INewWordsService
     public List<NewWords> selectNewWordsRandomList(NewWords newWords)
     {
         return newWordsMapper.selectNewWordsRandomList(newWords);
+    }
+
+    /**
+     * 查询生词汇总信息
+     *
+     * @param newWords 生词
+     * @return 生词
+     */
+    @Override
+    public NewWordsCollect selectNewWordsCollect(long userId)
+    {
+        return newWordsMapper.selectNewWordsCollect(userId);
     }
 
     /**

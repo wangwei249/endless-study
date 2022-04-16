@@ -1,7 +1,10 @@
 package com.jeethink.study.mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import com.jeethink.study.domain.NewWords;
+import com.jeethink.study.domain.assist.NewWordsCollect;
 
 /**
  * 生词Mapper接口
@@ -34,6 +37,14 @@ public interface NewWordsMapper
      * @return 生词集合
      */
     public List<NewWords> selectNewWordsRandomList(NewWords newWords);
+
+    /**
+     * 查询生词汇总信息
+     *
+     * @param userId 生词
+     * @return 生词集合
+     */
+    public NewWordsCollect selectNewWordsCollect(long userId);
 
     /**
      * 新增生词

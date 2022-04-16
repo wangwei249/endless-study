@@ -1,8 +1,12 @@
 package com.jeethink.study.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+
+import com.jeethink.study.domain.assist.NewWordsCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,6 +61,18 @@ public class NewWordsController extends BaseController
         //startPage();
         List<NewWords> list = newWordsService.selectNewWordsRandomList(newWords);
         return getDataTable(list);
+    }
+
+    /**
+     * 查询生词汇总信息
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/selectNewWordsCollect")
+    public NewWordsCollect selectNewWordsCollect(String userId)
+    {
+        //startPage();
+        NewWordsCollect newWordsCollect = newWordsService.selectNewWordsCollect(Long.valueOf(userId));
+        return  newWordsCollect;
     }
 
     /**
