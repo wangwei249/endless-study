@@ -63,7 +63,7 @@ public class NewWordsServiceImpl implements INewWordsService
     /**
      * 查询生词汇总信息
      *
-     * @param newWords 生词
+     * @param userId 生词
      * @return 生词
      */
     @Override
