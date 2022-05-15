@@ -22,6 +22,7 @@ public class NewWordsRecords extends BaseEntity
     @Excel(name = "生词ID")
     private Long newWordsId;
 
+
     /** 用户ID */
     @Excel(name = "用户ID")
     private Long userId;
@@ -29,6 +30,12 @@ public class NewWordsRecords extends BaseEntity
     /** S:成功、F：失败 */
     @Excel(name = "S:成功、F：失败")
     private String result;
+
+    /** 应战回复 【用于接收】*/
+    private String challengeReply;
+    /** 应战回复 【用于接收】*/
+    private String challengeStatus;
+
 
     public void setId(Long id) 
     {
@@ -65,6 +72,22 @@ public class NewWordsRecords extends BaseEntity
     public String getResult() 
     {
         return result;
+    }
+
+    public String getChallengeReply() {
+        return challengeReply;
+    }
+
+    public void setChallengeReply(String challengeReply) {
+        this.challengeReply = challengeReply;
+    }
+
+    public String getChallengeStatus() {
+        return challengeStatus;
+    }
+
+    public void setChallengeStatus(String challengeStatus) {
+        this.challengeStatus = challengeStatus;
     }
 
     @Override

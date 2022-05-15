@@ -32,6 +32,35 @@ public class NewWordsCollect extends BaseEntity
     /** 存活数 */
     private Long aliveNum;
 
+    /** 待应战数 */
+    private Long challengeNum;
+
+    /** 可练习生词数 */
+    private Long practiseNum;
+
+
+    /**  线性图表 【年月】 */
+    private String yearMonth;
+    /**  线性图表 【目标数】 */
+    private String expectNum;
+    /**  线性图表 【实际数】 */
+    private String actualNum;
+    /**  线性图表 【月度通过数】 */
+    private String actualPassNum;
+
+    /**  线性图表 【月度目标通过数】 */
+    private String expectPassNum;
+    /**  线性图表 【月度目标通过数】 */
+    private String expectRightRatio;
+    /**  线性图表 【月度目标通过数】 */
+    private String actualRightRatio;
+
+    /**  线性图表 【月度应战/挑战成功数量】 */
+    private String challengePassNum;
+    /**  线性图表 【月度应战/挑战失败数量】 */
+    private String challengeFailNum;
+
+
     public Long getUserId() {
         return userId;
     }
@@ -62,5 +91,93 @@ public class NewWordsCollect extends BaseEntity
 
     public void setAliveNum(Long aliveNum) {
         this.aliveNum = aliveNum;
+    }
+
+    public Long getChallengeNum() {
+        return challengeNum;
+    }
+
+    public void setChallengeNum(Long challengeNum) {
+        this.challengeNum = challengeNum;
+    }
+
+    public Long getPractiseNum() {
+        return practiseNum;
+    }
+
+    public void setPractiseNum(Long practiseNum) {
+        this.practiseNum = practiseNum;
+    }
+
+    public String getYearMonth() {
+        return yearMonth;
+    }
+
+    public void setYearMonth(String yearMonth) {
+        this.yearMonth = yearMonth;
+    }
+
+    public String getExpectNum() {
+        return expectNum;
+    }
+
+    public void setExpectNum(String expectNum) {
+        this.expectNum = expectNum;
+    }
+
+    public String getActualNum() {
+        return actualNum;
+    }
+
+    public void setActualNum(String actualNum) {
+        this.actualNum = actualNum;
+    }
+
+    public String getActualPassNum() {
+        return actualPassNum;
+    }
+
+    public void setActualPassNum(String actualPassNum) {
+        this.actualPassNum = actualPassNum;
+    }
+
+    public String getExpectPassNum() {
+        return expectPassNum;
+    }
+
+    public void setExpectPassNum(String expectPassNum) {
+        this.expectPassNum = expectPassNum;
+    }
+
+    public String getExpectRightRatio() {
+        return expectRightRatio;
+    }
+
+    public void setExpectRightRatio(String expectRightRatio) {
+        this.expectRightRatio = expectRightRatio;
+    }
+
+    public String getActualRightRatio() {
+        return actualRightRatio;
+    }
+
+    public void setActualRightRatio(String actualRightRatio) {
+        this.actualRightRatio = actualRightRatio;
+    }
+
+    public String getChallengePassNum() {
+        return challengePassNum;
+    }
+
+    public void setChallengePassNum(String challengePassNum) {
+        this.challengePassNum = challengePassNum;
+    }
+
+    public String getChallengeFailNum() {
+        return challengeFailNum;
+    }
+
+    public void setChallengeFailNum(String challengeFailNum) {
+        this.challengeFailNum = challengeFailNum;
     }
 }

@@ -1,5 +1,6 @@
 package com.jeethink.study.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,6 +71,33 @@ public class NewWordsServiceImpl implements INewWordsService
     public NewWordsCollect selectNewWordsCollect(long userId)
     {
         return newWordsMapper.selectNewWordsCollect(userId);
+    }
+
+    /**
+     * 查询线性图表信息【查询月份目标设定的目标值，完成值，通过值】
+     *
+     * @param userId 生词
+     * @return 生词
+     */
+    @Override
+    public List<NewWordsCollect> selectExpectActual(long userId)
+    {
+        return newWordsMapper.selectExpectActual(userId);
+    }
+
+    /**
+     * 查询应战数据图表【应战数，成功数，失败数】
+     *
+     * @param userId 生词
+     * @return 生词
+     */
+    @Override
+    public List<NewWordsCollect> selectChallengeCollect(long userId,String type)
+    {
+        Map map = new HashMap();
+        map.put("USER_ID",userId);
+        map.put("TYPE",type);
+        return newWordsMapper.selectChallengeCollect(map);
     }
 
     /**

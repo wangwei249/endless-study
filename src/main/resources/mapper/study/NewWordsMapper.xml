@@ -18,6 +18,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
         <result property="remark"    column="remark"    />
         <result property="word"    column="word"    />
+        <result property="voice"    column="voice"    />
+
+        <result property="challengeId"    column="challenge_id"    />
+        <result property="challengeStatus"    column="challenge_status"    />
+        <result property="challengePut"    column="challenge_put"    />
+        <result property="challengeReply"    column="challenge_reply"    />
+
+        <result property="reqIntervalTimes"    column="reqIntervalTimes"    />
+        <result property="elapseTimes"    column="elapseTimes"    />
+        <result property="reqCount"    column="reqCount"    />
+        <collection property="meansList" column="WORD_ID" javaType="ArrayList"
+                    ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
     </resultMap>
 
     <sql id="selectNewWordsVo">
@@ -34,19 +46,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
           n.update_by,
           n.update_time,
           n.remark,
-          w.`word`
+          w.`word`,
+          w.`voice`,
+          n.challenge_id,
+          n.challenge_status,
+          n.challenge_put,
+          n.challenge_reply,
+          IFNULL(s2.`SETTING_VALUE`,0) AS  reqIntervalTimes,
+          IFNULL(TIMESTAMPDIFF(HOUR,n.`LAST_RIGTH_TIME`,NOW()),0) AS elapseTimes,
+          s.reqCount
           FROM new_words n
            LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
+
+           LEFT JOIN (SELECT s1.`USER_ID`, MAX(s1.`SETTING_NAME`) AS reqCount
+                FROM new_words_setting s1
+                WHERE s1.`SETTING_TYPE` = 'memory_method'
+                GROUP BY s1.`USER_ID`) s ON n.`USER_ID` = s.user_id
+
+           LEFT JOIN new_words_setting s2 ON n.`RIGHT_TIMES`+1 = s2.`SETTING_NAME`
+               AND s2.`SETTING_TYPE` = 'memory_method' AND s2.`USER_ID` = n.`USER_ID`
     </sql>
 
     <select id="selectNewWordsList" parameterType="NewWords" resultMap="NewWordsResult">
         <include refid="selectNewWordsVo"/>
-        <where>  
-            <if test="userId != null "> and n.USER_ID = #{userId}</if>
+        <where>
+            <if test="challengeId == null "> and n.challenge_id is null </if>
+            <if test="userId != null "> and n.USER_ID = #{userId} </if>
             <if test="wordId != null "> and n.WORD_ID = #{wordId}</if>
+            <if test="word != null and word != '' "> and w.WORD = #{word}</if>
             <if test="status != null  and status != ''"> and n.STATUS = #{status}</if>
             <if test="wrongTimes != null "> and n.WRONG_TIMES = #{wrongTimes}</if>
             <if test="rightTimes != null "> and n.RIGHT_TIMES = #{rightTimes}</if>
+            <if test="lastRigthTime != null "> and n.LAST_RIGTH_TIME = #{lastRigthTime}</if>
             <if test="lastRigthTime != null "> and n.LAST_RIGTH_TIME = #{lastRigthTime}</if>
         </where>
     </select>
@@ -93,9 +124,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                   w.`word`
             FROM new_words n
               LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
-              WHERE n.STATUS = 'S'
-              ORDER BY RAND() LIMIT 1
+              LEFT JOIN (SELECT s1.`USER_ID`, MAX(s1.`SETTING_NAME`) AS reqCount
+                FROM new_words_setting s1
+                WHERE s1.`SETTING_TYPE` = 'memory_method'
+                GROUP BY s1.`USER_ID`) s ON n.`USER_ID` = s.user_id
+
+              LEFT JOIN new_words_setting s2 ON n.`RIGHT_TIMES`+1 = s2.`SETTING_NAME`
+                  AND s2.`SETTING_TYPE` = 'memory_method' AND s2.`USER_ID` = n.`USER_ID`
+
+        <where>
+           <if test="id != null "> and n.ID = #{id}</if>
+           <if test="userId != null "> and n.USER_ID = #{userId} </if>
+           <if test="challengeId != null "> and n.challenge_id = #{challengeId}</if>
+           <if test="challengeId == null "> and n.challenge_id is null </if>
+           <if test="challengeStatus != null and challengeStatus != ''"> and n.challenge_status = #{challengeStatus}</if>
+           <if test="status != null"> and n.STATUS = #{status}</if>
+           <if test="status == 'A'.toString()">
+             <![CDATA[
+                and n.`RIGHT_TIMES` < s.reqCount
+                and IFNULL(TIMESTAMPDIFF(HOUR,n.`LAST_RIGTH_TIME`,NOW()),0) >= IFNULL(s2.`SETTING_VALUE`,0)
+             ]]>
+           </if>
+        </where>
+        <if test="challengeId == null "> ORDER BY RAND() </if>
     </select>
+
     <resultMap type="Means" id="MeansByWordIDResultMap">
         <result property="posName"    column="posName"    />
         <result property="posMean"    column="posMean"    />
@@ -119,20 +172,141 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="allNum"    column="all_num"    />
         <result property="passNum"    column="pass_num"    />
         <result property="aliveNum"    column="alive_num"    />
+        <result property="practiseNum"    column="practise_num"    />
     </resultMap>
     <select id="selectNewWordsCollect" parameterType="Long" resultMap="SelectNewWordsCollectResultMap">
      <![CDATA[
         SELECT
-        n.`USER_ID`,
-        COUNT(1) all_num,
-        SUM(CASE WHEN n.`RIGHT_TIMES`>=3 THEN 1 END) AS pass_num,
-        SUM(CASE WHEN n.`RIGHT_TIMES`< 3 THEN 1 END) AS alive_num
-        FROM new_words n
-        WHERE n.USER_ID = #{userId}
-        GROUP BY n.`USER_ID`
+              n.`USER_ID`,
+              COUNT(1) all_num,
+              SUM(
+                CASE
+                  WHEN n.`RIGHT_TIMES` >= s.reqCount
+                  THEN 1
+                END
+              ) AS pass_num,
+              SUM(
+                CASE
+                  WHEN n.`RIGHT_TIMES` < s.reqCount
+                  THEN 1
+                END
+              ) AS alive_num,
+              SUM(
+                CASE
+                  WHEN IFNULL(TIMESTAMPDIFF(HOUR,n.`LAST_RIGTH_TIME`,NOW()),0) >= IFNULL(s2.`SETTING_VALUE`,0)  AND n.`RIGHT_TIMES` < s.reqCount
+                  THEN 1
+                END
+              ) AS practise_num
+            FROM
+              new_words n
+              LEFT JOIN
+                (SELECT
+                  s1.`USER_ID`,
+                  MAX(s1.`SETTING_NAME`) AS reqCount
+                FROM
+                  new_words_setting s1
+                WHERE s1.`SETTING_TYPE` = 'memory_method'
+                  GROUP BY s1.`USER_ID`) s
+                ON n.`USER_ID` = s.user_id
+              LEFT JOIN new_words_setting s2 ON n.`RIGHT_TIMES`+1 = s2.`SETTING_NAME`
+                  AND s2.`SETTING_TYPE` = 'memory_method' AND s2.`USER_ID` = n.`USER_ID`
+
+            WHERE n.USER_ID = #{USER_ID}
+              AND n.challenge_id IS NULL
+            GROUP BY n.`USER_ID`
 
         ]]>
     </select>
+
+
+
+    <resultMap type="NewWordsCollect" id="SelectChallengeCollectResultMap">
+        <result property="userId"    column="USER_ID"    />
+        <result property="yearMonth"    column="yearMonth"    />
+        <result property="challengeNum"    column="challengeNum"    />
+        <result property="challengePassNum"    column="challengePassNum"    />
+        <result property="challengeFailNum"    column="challengeFailNum"    />
+    </resultMap>
+    <select id="selectChallengeCollect" parameterType="map" resultMap="SelectChallengeCollectResultMap">
+
+        SELECT s3.`USER_ID`,
+               s3.`SETTING_NAME` yearMonth,
+               COUNT(n.`WORD_ID`) challengeNum,
+               IFNULL(SUM(
+                CASE
+                  WHEN n.`challenge_status` = 'S'
+                  THEN 1
+                END
+                  ),0) AS challengePassNum,
+               IFNULL(SUM(
+                CASE
+                  WHEN n.`challenge_status` = 'F'
+                  THEN 1
+                END
+                  ),0) AS challengeFailNum
+
+              FROM
+                new_words_setting s3
+                <if test="TYPE == 'challenge'.toString() ">
+                   LEFT JOIN new_words n ON DATE_FORMAT(n.`create_time`,'%Y-%m') = s3.`SETTING_NAME` AND s3.`USER_ID` = n.`challenge_id`
+                </if>
+                <if test="TYPE == 'challenger'.toString()  ">
+                   LEFT JOIN new_words n ON DATE_FORMAT(n.`create_time`,'%Y-%m') = s3.`SETTING_NAME` AND s3.`USER_ID` = n.`USER_ID` AND n.`challenge_id` IS NOT NULL
+                </if>
+           WHERE  s3.`USER_ID` = #{USER_ID}
+               AND s3.`SETTING_TYPE` = 'collect_target'
+              GROUP BY s3.`SETTING_NAME`
+            ORDER BY yearMonth  LIMIT 7
+
+    </select>
+
+
+
+
+    <resultMap type="NewWordsCollect" id="SelectExpectActualResultMap">
+        <result property="userId"    column="USER_ID"    />
+        <result property="yearMonth"    column="yearMonth"    />
+        <result property="expectNum"    column="expectNum"    />
+        <result property="actualNum"    column="actualNum"    />
+        <result property="expectPassNum"    column="expectPassNum"    />
+        <result property="actualPassNum"    column="actualPassNum"    />
+        <result property="expectRightRatio"    column="expectRightRatio"    />
+        <result property="actualRightRatio"    column="actualRightRatio"    />
+    </resultMap>
+    <select id="selectExpectActual" parameterType="Long" resultMap="SelectExpectActualResultMap">
+     <![CDATA[
+        SELECT s3.`USER_ID`,
+               s3.`SETTING_NAME` yearMonth,
+               COUNT(n.`WORD_ID`) actualNum,
+               IFNULL(s3.`SETTING_VALUE`,0) expectNum,
+                    IFNULL(SUM(
+                        CASE
+                          WHEN n.`RIGHT_TIMES` >= s.reqCount
+                          THEN 1
+                        END
+                      ),0) AS actualPassNum,
+
+               IFNULL(s3.`SETTING_VALUE_TWO`,0) expectPassNum,
+               IFNULL(SUM(n.`RIGHT_TIMES`),0)/IFNULL(SUM(n.`RIGHT_TIMES`) + SUM(n.`WRONG_TIMES`) ,1) actualRightRatio,
+               IFNULL(s3.`SETTING_VALUE_THREE`,0) expectRightRatio
+
+          FROM
+              new_words_setting s3
+
+              LEFT JOIN new_words n ON DATE_FORMAT(n.`create_time`,'%Y-%m') = s3.`SETTING_NAME` AND s3.`USER_ID` = n.`USER_ID`  AND n.`challenge_id` IS NULL
+
+              LEFT JOIN (SELECT s1.`USER_ID`, MAX(s1.`SETTING_NAME`) AS reqCount
+                        FROM new_words_setting s1
+                        WHERE s1.`SETTING_TYPE` = 'memory_method'
+                        GROUP BY s1.`USER_ID`) s ON n.`USER_ID` = s.user_id
+
+             WHERE s3.`USER_ID` = #{userId}
+               AND s3.`SETTING_TYPE` = 'collect_target'
+               GROUP BY s3.`SETTING_NAME`,s3.`SETTING_VALUE`,s3.`SETTING_VALUE_TWO`,s3.`SETTING_VALUE_THREE`
+               ORDER BY yearMonth
+        ]]>
+    </select>
+
 
         
     <insert id="insertNewWords" parameterType="NewWords" useGeneratedKeys="true" keyProperty="id">
@@ -149,6 +323,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by,</if>
             <if test="updateTime != null">update_time,</if>
             <if test="remark != null">remark,</if>
+            <if test="challengeId != null">challenge_id,</if>
+            <if test="challengeStatus != null">challenge_status,</if>
+            <if test="challengePut != null">challenge_put,</if>
+            <if test="challengeReply != null">challenge_reply,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="userId != null">#{userId},</if>
@@ -162,6 +340,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">#{updateBy},</if>
             <if test="updateTime != null">#{updateTime},</if>
             <if test="remark != null">#{remark},</if>
+            <if test="challengeId != null">#{challengeId},</if>
+            <if test="challengeStatus != null">#{challengeStatus},</if>
+            <if test="challengePut != null">#{challengePut},</if>
+            <if test="challengeReply != null">#{challengeReply},</if>
          </trim>
     </insert>
 
@@ -179,6 +361,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by = #{updateBy},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="remark != null">remark = #{remark},</if>
+            <if test="challengeId != null">challenge_id = #{challengeId},</if>
+            <if test="challengeStatus != null">challenge_status = #{challengeStatus},</if>
+            <if test="challengePut != null">challenge_put = #{challengePut},</if>
+            <if test="challengeReply != null">challenge_reply = #{challengeReply},</if>
         </trim>
         where ID = #{id}
     </update>

@@ -43,7 +43,7 @@ public class NewWords extends BaseEntity
     private Integer rightTimes;
 
     /** 上一次正确时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Excel(name = "上一次正确时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date lastRigthTime;
 
@@ -53,6 +53,11 @@ public class NewWords extends BaseEntity
     @Excel(name = "单词")
     private String word;
 
+    /**新增关联表数据*/
+    /** 单词 */
+    @Excel(name = "读音")
+    private String voice;
+
     /** 含义列表 */
     private List<Means> meansList;
 
@@ -60,7 +65,50 @@ public class NewWords extends BaseEntity
     private String correct;
 
 
-    public void setId(Long id) 
+    /** 应战者ID（单词挑战） */
+    private Long challengeId;
+    /** 挑战状态 【E：未处理， S：成功， F：失败】 */
+    private String challengeStatus;
+    /** 挑战留言 */
+    private String challengePut;
+    /** 应战回复 */
+    private String challengeReply;
+
+    /** 练习间隔时间 */
+    private int reqIntervalTimes;
+
+    /** 已经过去的时间 */
+    private int elapseTimes;
+
+    /** 要求练习次数 */
+    private int reqCount;
+
+
+    public int getReqCount() {
+        return reqCount;
+    }
+
+    public void setReqCount(int reqCount) {
+        this.reqCount = reqCount;
+    }
+
+    public int getReqIntervalTimes() {
+        return reqIntervalTimes;
+    }
+
+    public void setReqIntervalTimes(int reqIntervalTimes) {
+        this.reqIntervalTimes = reqIntervalTimes;
+    }
+
+    public int getElapseTimes() {
+        return elapseTimes;
+    }
+
+    public void setElapseTimes(int elapseTimes) {
+        this.elapseTimes = elapseTimes;
+    }
+
+    public void setId(Long id)
     {
         this.id = id;
     }
@@ -165,5 +213,45 @@ public class NewWords extends BaseEntity
 
     public void setCorrect(String correct) {
         this.correct = correct;
+    }
+
+    public String getVoice() {
+        return voice;
+    }
+
+    public void setVoice(String voice) {
+        this.voice = voice;
+    }
+
+    public Long getChallengeId() {
+        return challengeId;
+    }
+
+    public void setChallengeId(Long challengeId) {
+        this.challengeId = challengeId;
+    }
+
+    public String getChallengeStatus() {
+        return challengeStatus;
+    }
+
+    public void setChallengeStatus(String challengeStatus) {
+        this.challengeStatus = challengeStatus;
+    }
+
+    public String getChallengePut() {
+        return challengePut;
+    }
+
+    public void setChallengePut(String challengePut) {
+        this.challengePut = challengePut;
+    }
+
+    public String getChallengeReply() {
+        return challengeReply;
+    }
+
+    public void setChallengeReply(String challengeReply) {
+        this.challengeReply = challengeReply;
     }
 }

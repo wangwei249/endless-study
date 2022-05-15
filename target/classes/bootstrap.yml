@@ -14,14 +14,18 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 175.24.126.137:8848
+        server-addr: 192.168.116.128:8848
         # 指定注册配置中心nacos里的服务ip为外网【study迁移到新的服务器和原来不在一个区】
-        ip: 124.221.214.244
+        #ip: 124.221.214.244
         port: 9205
       config:
         # 配置中心地址
-        server-addr: 175.24.126.137:8848
+        server-addr: 192.168.116.128:8848
         # 配置文件格式
         file-extension: yml
         # 共享配置
         shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+  mybatis:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

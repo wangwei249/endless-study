@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeethink.study.domain.assist.NewWordsChallenge;
 import com.jeethink.study.domain.assist.NewWordsCollect;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -76,6 +78,30 @@ public class NewWordsController extends BaseController
     }
 
     /**
+     * 查询线性图表信息【查询月份目标设定的目标值，完成值，通过值】
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/selectExpectActual/{userId}")
+    public TableDataInfo selectExpectActual(@PathVariable("userId") Long userId)
+    {
+        //startPage();
+        List<NewWordsCollect> list = newWordsService.selectExpectActual(Long.valueOf(userId));
+        return getDataTable(list);
+    }
+
+    /**
+     * 查询应战数据图表【应战数，成功数，失败数】
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/selectChallengeCollect/{userId}/{type}")
+    public TableDataInfo selectChallengeCollect(@PathVariable("userId") Long userId,@PathVariable("type") String type)
+    {
+        //startPage();
+        List<NewWordsCollect> list = newWordsService.selectChallengeCollect(Long.valueOf(userId),type);
+        return getDataTable(list);
+    }
+
+    /**
      * 导出生词列表
      */
     @PreAuthorize(hasPermi = "study:newWords:export")
@@ -129,5 +155,27 @@ public class NewWordsController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(newWordsService.deleteNewWordsByIds(ids));
+    }
+
+    /**
+     * 新增生词挑战
+     */
+    @PreAuthorize(hasPermi = "study:newWords:add")
+    @Log(title = "生词挑战", businessType = BusinessType.INSERT)
+    @PostMapping("/addChallenge")
+    public AjaxResult addChallenge(@RequestBody NewWordsChallenge newWordsChallenge)
+    {
+        Long[] userIds = newWordsChallenge.getChallengeUserList();
+        System.out.println("获取到的应战者id长度:"+userIds.length);
+        int count = 0;
+        for(int i=0;i<userIds.length;i++){
+            NewWords newWords = new NewWords();
+            BeanUtils.copyProperties(newWordsChallenge,newWords);
+            newWords.setChallengeId(userIds[i]);
+            newWords.setChallengeStatus("E");
+            count += newWordsService.insertNewWords(newWords);
+        }
+        System.out.println("成功插入："+count+"条挑战记录");
+        return toAjax(count);
     }
 }

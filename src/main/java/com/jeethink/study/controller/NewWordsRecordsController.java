@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jeethink.study.domain.NewWords;
 import com.jeethink.study.service.INewWordsService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -90,9 +91,18 @@ public class NewWordsRecordsController extends BaseController
         if("success".equals(newWordsRecords.getResult())){
             newWords.setRightTimes(newWords.getRightTimes()+1);
             newWords.setLastRigthTime(new Date());
+            if(newWords.getRightTimes() == 2){
+                newWords.setStatus("D");
+            }
         }else{
             newWords.setWrongTimes(newWords.getWrongTimes()+1);
         }
+        //如果是应战练习，则设置应战结果状态和应战回复留言信息
+        if(StringUtils.isNotEmpty(newWordsRecords.getChallengeStatus())){
+            newWords.setChallengeStatus(newWordsRecords.getChallengeStatus());
+            newWords.setChallengeReply(newWordsRecords.getChallengeReply());
+        }
+
         newWordsService.updateNewWords(newWords);
 
         return toAjax(newWordsRecordsService.insertNewWordsRecords(newWordsRecords));

@@ -47,6 +47,22 @@ public interface NewWordsMapper
     public NewWordsCollect selectNewWordsCollect(long userId);
 
     /**
+     * 查询线性图表信息【查询月份目标设定的目标值，完成值，通过值】
+     *
+     * @param userId 生词
+     * @return 生词集合
+     */
+    public List<NewWordsCollect> selectExpectActual(long userId);
+
+    /**
+     * 查询应战数据图表【应战数，成功数，失败数】
+     *
+     * @param map 生词
+     * @return 生词集合
+     */
+    public List<NewWordsCollect> selectChallengeCollect(Map map);
+
+    /**
      * 新增生词
      * 
      * @param newWords 生词
