@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jeethink.study.domain.NewWords;
+import com.jeethink.study.domain.assist.FriendsDyn;
 import com.jeethink.study.domain.assist.NewWordsCollect;
 
 /**
@@ -53,6 +54,14 @@ public interface NewWordsMapper
      * @return 生词集合
      */
     public List<NewWordsCollect> selectExpectActual(long userId);
+
+    /**
+     * 查询好友动态
+     *
+     * @param userId 生词
+     * @return 生词集合
+     */
+    public List<FriendsDyn> selectFriendsDyn(long userId);
 
     /**
      * 查询应战数据图表【应战数，成功数，失败数】

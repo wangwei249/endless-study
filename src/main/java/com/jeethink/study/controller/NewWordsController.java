@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeethink.study.domain.Friends;
+import com.jeethink.study.domain.assist.FriendsDyn;
 import com.jeethink.study.domain.assist.NewWordsChallenge;
 import com.jeethink.study.domain.assist.NewWordsCollect;
 import org.springframework.beans.BeanUtils;
@@ -165,17 +167,29 @@ public class NewWordsController extends BaseController
     @PostMapping("/addChallenge")
     public AjaxResult addChallenge(@RequestBody NewWordsChallenge newWordsChallenge)
     {
-        Long[] userIds = newWordsChallenge.getChallengeUserList();
-        System.out.println("获取到的应战者id长度:"+userIds.length);
+        List<Friends> fsList = newWordsChallenge.getChallengeUserList();
+        System.out.println("获取到的应战者id长度:"+fsList.size());
         int count = 0;
-        for(int i=0;i<userIds.length;i++){
+        for(int i=0;i<fsList.size();i++){
             NewWords newWords = new NewWords();
             BeanUtils.copyProperties(newWordsChallenge,newWords);
-            newWords.setChallengeId(userIds[i]);
+            newWords.setChallengeId(fsList.get(i).getFriendId());
             newWords.setChallengeStatus("E");
             count += newWordsService.insertNewWords(newWords);
         }
         System.out.println("成功插入："+count+"条挑战记录");
         return toAjax(count);
+    }
+
+    /**
+     * 查询好友动态
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/selectFriendsDyn/{userId}")
+    public TableDataInfo selectFriendsDyn(@PathVariable("userId") Long userId)
+    {
+        //startPage();
+        List<FriendsDyn> list = newWordsService.selectFriendsDyn(Long.valueOf(userId));
+        return getDataTable(list);
     }
 }

@@ -104,6 +104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
         <result property="remark"    column="remark"    />
         <result property="word"    column="word"    />
+        <result property="challengePut"    column="challenge_put"    />
         <collection property="meansList" column="WORD_ID" javaType="ArrayList"
                     ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
     </resultMap>
@@ -121,7 +122,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                   n.update_by,
                   n.update_time,
                   n.remark,
-                  w.`word`
+                  w.`word`,
+                  n.challenge_put
             FROM new_words n
               LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
               LEFT JOIN (SELECT s1.`USER_ID`, MAX(s1.`SETTING_NAME`) AS reqCount
@@ -379,5 +381,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+
+
+    <resultMap type="FriendsDyn" id="FriendsDynResult">
+        <result property="userId"    column="FRIEND_ID"    />
+        <result property="wordId"    column="WORD_ID"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="word"    column="word"    />
+        <collection property="meansList" column="WORD_ID" javaType="ArrayList"
+                    ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
+    </resultMap>
+    <select id="selectFriendsDyn" parameterType="NewWords" resultMap="FriendsDynResult">
+         SELECT
+              f.`FRIEND_ID`,
+              u.`user_name`,
+              u.`nick_name`,
+              n.`WORD_ID`,
+              w.`word`,
+              n.`create_time`
+            FROM
+              friends f
+              LEFT JOIN sys_user u
+                ON f.`FRIEND_ID` = u.`user_id`
+              LEFT JOIN new_words n
+                ON f.`FRIEND_ID` = n.`USER_ID`
+              LEFT JOIN words w
+                ON n.`WORD_ID` = w.`ID`
+            WHERE f.`USER_ID` = #{USER_ID}
+              AND n.`WORD_ID` IS NOT NULL
+            ORDER BY n.`create_time` DESC
+            LIMIT 10
+    </select>
     
 </mapper>

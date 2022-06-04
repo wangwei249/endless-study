@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jeethink.common.core.utils.DateUtils;
+import com.jeethink.study.domain.assist.FriendsDyn;
 import com.jeethink.study.domain.assist.NewWordsCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,6 +84,18 @@ public class NewWordsServiceImpl implements INewWordsService
     public List<NewWordsCollect> selectExpectActual(long userId)
     {
         return newWordsMapper.selectExpectActual(userId);
+    }
+
+
+    /**
+     * 查询好友动态
+     * @param userId 生词
+     * @return 生词
+     */
+    @Override
+    public List<FriendsDyn> selectFriendsDyn(long userId)
+    {
+        return newWordsMapper.selectFriendsDyn(userId);
     }
 
     /**

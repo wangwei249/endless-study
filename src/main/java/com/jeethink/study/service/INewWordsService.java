@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jeethink.study.domain.NewWords;
+import com.jeethink.study.domain.assist.FriendsDyn;
 import com.jeethink.study.domain.assist.NewWordsCollect;
 
 /**
@@ -45,6 +46,14 @@ public interface INewWordsService
      * @return 【总数，已消灭，未消灭】
      */
     public NewWordsCollect selectNewWordsCollect(long userId);
+
+    /**
+     * 查询好友动态
+     *
+     * @param userId 生词
+     * @return 【总数，已消灭，未消灭】
+     */
+    public List<FriendsDyn> selectFriendsDyn(long userId);
 
     /**
      * 查询线性图表信息【查询月份目标设定的目标值，完成值，通过值】
