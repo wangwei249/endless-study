@@ -113,6 +113,17 @@ public class WordsController extends BaseController
     public TableDataInfo listSuggest(Words words)
     {
         //startPage();
+//        List<Words> list = wordsService.selectWordsListSuggest(words);
+
+
+//        if(list.size()<4){
+//            String[] strs = new String[]{"c","a","m","t","b","u","d","r","h","e"};
+//            int random = 0+(int)(Math.random() * (strs.length-1+0+1));
+//            words.setWord(strs[random]);
+//            list = wordsService.selectWordsListSuggest(words);
+//        }
+        //改为随机取100条
+        //words.setWord("");
         List<Words> list = wordsService.selectWordsListSuggest(words);
         return getDataTable(list);
     }

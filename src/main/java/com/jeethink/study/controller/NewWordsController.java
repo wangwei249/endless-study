@@ -7,9 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jeethink.study.domain.Friends;
-import com.jeethink.study.domain.assist.FriendsDyn;
-import com.jeethink.study.domain.assist.NewWordsChallenge;
-import com.jeethink.study.domain.assist.NewWordsCollect;
+import com.jeethink.study.domain.NewWordsSetting;
+import com.jeethink.study.domain.assist.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +28,8 @@ import com.jeethink.common.core.web.controller.BaseController;
 import com.jeethink.common.core.web.domain.AjaxResult;
 import com.jeethink.common.core.utils.poi.ExcelUtil;
 import com.jeethink.common.core.web.page.TableDataInfo;
+import java.util.Calendar;
+import com.jeethink.study.service.INewWordsSettingService;
 
 /**
  * 生词Controller
@@ -42,6 +43,10 @@ public class NewWordsController extends BaseController
 {
     @Autowired
     private INewWordsService newWordsService;
+
+    @Autowired
+    private INewWordsSettingService newWordsSettingService;
+
 
     /**
      * 查询生词列表
@@ -149,6 +154,21 @@ public class NewWordsController extends BaseController
     }
 
     /**
+     * 批量修改生词
+     */
+    @PreAuthorize(hasPermi = "study:newWords:edit")
+    @Log(title = "生词", businessType = BusinessType.UPDATE)
+    @PostMapping("/editBatch")
+    public AjaxResult editBatch(@RequestBody List<NewWords> newWords)
+    {
+        int cot = 0;
+        for(NewWords word:newWords){
+            cot = newWordsService.updateNewWords(word);
+        }
+        return toAjax(cot);
+    }
+
+    /**
      * 删除生词
      */
     @PreAuthorize(hasPermi = "study:newWords:remove")
@@ -190,6 +210,109 @@ public class NewWordsController extends BaseController
     {
         //startPage();
         List<FriendsDyn> list = newWordsService.selectFriendsDyn(Long.valueOf(userId));
+        return getDataTable(list);
+    }
+
+
+    /**
+     * 查询热词列表
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/listHots/{count}")
+    public TableDataInfo listHots(@PathVariable("count") Integer count)
+    {
+        //startPage();
+        List<HotWord> list = newWordsService.listHots(count);
+        return getDataTable(list);
+    }
+
+    /**
+     * 创建新用户生词系统相关的默认数据
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/addUserDefaultSetting/{userId}")
+    public AjaxResult addUserDefaultSetting(@PathVariable("userId") String userId)
+    {
+        //startPage();
+        //List<HotWord> list = newWordsService.listHots(count);
+
+        //插入生词间隔
+        List<NewWordsSetting> newWordsSettingList = new ArrayList<NewWordsSetting>();
+        NewWordsSetting word1 = new NewWordsSetting();
+        word1.setUserId(Long.valueOf(userId));
+        word1.setSettingType("memory_method");
+        word1.setSettingName("1");
+        word1.setSettingValue("0");
+        word1.setCreateBy("admin");
+        word1.setUpdateBy("admin");
+        word1.setStatus("T");
+        NewWordsSetting word2 = new NewWordsSetting();
+        BeanUtils.copyProperties(word1,word2);
+        word1.setSettingName("2");
+        word1.setSettingValue("24");
+        NewWordsSetting word3= new NewWordsSetting();
+        BeanUtils.copyProperties(word1,word3);
+        word3.setSettingName("3");
+        word3.setSettingValue("72");
+        NewWordsSetting word4= new NewWordsSetting();
+        BeanUtils.copyProperties(word1,word4);
+        word4.setSettingName("4");
+        word4.setSettingValue("72");
+        NewWordsSetting word5= new NewWordsSetting();
+        BeanUtils.copyProperties(word1,word5);
+        word5.setSettingName("4");
+        word5.setSettingValue("168");
+        newWordsSettingList.add(word1);
+        newWordsSettingList.add(word2);
+        newWordsSettingList.add(word3);
+        newWordsSettingList.add(word4);
+        newWordsSettingList.add(word5);
+
+        //生词目标设置默认数据
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);  // 当前年
+        int month = cal.get(Calendar.MONTH) + 1;  // 当前月
+        String nextYearMonth = "";
+        for(int i=0;i<=5;i++){
+            if(month < 10){
+                nextYearMonth = year+ "-0" + month;
+            }else{
+                if(month == 12){
+                    nextYearMonth = (year+1) + "-01";
+                }else{
+                    nextYearMonth = year+ "-"+ month;
+                }
+            }
+            month++;
+
+            NewWordsSetting target = new NewWordsSetting();
+            target.setUserId(Long.valueOf(userId));
+            target.setSettingType("collect_target");
+            target.setSettingName(nextYearMonth);
+            target.setSettingValue("100");
+            target.setSettingValueTwo("50");
+            target.setSettingValueThree("0.8");
+            target.setCreateBy("admin");
+            target.setUpdateBy("admin");
+            newWordsSettingList.add(target);
+        }
+
+        int successCount = newWordsSettingService.editBatch(newWordsSettingList);
+
+
+        return toAjax(successCount);
+    }
+
+
+    /**
+     * 查询生词统计排行榜
+     */
+    //@PreAuthorize(hasPermi = "study:newWords:list")
+    @GetMapping("/selectRank/{status}")
+    public TableDataInfo selectRank(@PathVariable("status") String status)
+    {
+        //startPage();
+        List<NewWordsRank> list = newWordsService.selectRank(status);
         return getDataTable(list);
     }
 }

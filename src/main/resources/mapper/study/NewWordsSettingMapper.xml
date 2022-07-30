@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.NewWordsSettingMapper">
+    
+    <resultMap type="NewWordsSetting" id="NewWordsSettingResult">
+        <result property="id"    column="ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="settingType"    column="SETTING_TYPE"    />
+        <result property="settingName"    column="SETTING_NAME"    />
+        <result property="settingValue"    column="SETTING_VALUE"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="status"    column="status"    />
+        <result property="settingValueTwo"    column="SETTING_VALUE_TWO"    />
+        <result property="settingValueThree"    column="SETTING_VALUE_THREE"    />
+        <result property="settingValueFour"    column="SETTING_VALUE_FOUR"    />
+    </resultMap>
+
+    <sql id="selectNewWordsSettingVo">
+        select ID, USER_ID, SETTING_TYPE, SETTING_NAME, SETTING_VALUE, create_by, create_time, update_by, update_time, remark, status, SETTING_VALUE_TWO, SETTING_VALUE_THREE, SETTING_VALUE_FOUR from new_words_setting
+    </sql>
+
+    <select id="selectNewWordsSettingList" parameterType="NewWordsSetting" resultMap="NewWordsSettingResult">
+        <include refid="selectNewWordsSettingVo"/>
+        <where>  
+            <if test="userId != null "> and USER_ID = #{userId}</if>
+            <if test="settingType != null  and settingType != ''"> and SETTING_TYPE = #{settingType}</if>
+            <if test="settingName != null  and settingName != ''"> and SETTING_NAME = #{settingName} </if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+
+        </where>
+           ORDER BY  USER_ID,SETTING_TYPE,SETTING_NAME
+    </select>
+    
+    <select id="selectNewWordsSettingById" parameterType="Integer" resultMap="NewWordsSettingResult">
+        <include refid="selectNewWordsSettingVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertNewWordsSetting" parameterType="NewWordsSetting" useGeneratedKeys="true" keyProperty="id">
+        insert into new_words_setting
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="settingType != null">SETTING_TYPE,</if>
+            <if test="settingName != null">SETTING_NAME,</if>
+            <if test="settingValue != null">SETTING_VALUE,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="status != null">status,</if>
+            <if test="settingValueTwo != null">SETTING_VALUE_TWO,</if>
+            <if test="settingValueThree != null">SETTING_VALUE_THREE,</if>
+            <if test="settingValueFour != null">SETTING_VALUE_FOUR,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="settingType != null">#{settingType},</if>
+            <if test="settingName != null">#{settingName},</if>
+            <if test="settingValue != null">#{settingValue},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="status != null">#{status},</if>
+            <if test="settingValueTwo != null">#{settingValueTwo},</if>
+            <if test="settingValueThree != null">#{settingValueThree},</if>
+            <if test="settingValueFour != null">#{settingValueFour},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNewWordsSetting" parameterType="NewWordsSetting">
+        update new_words_setting
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">USER_ID = #{userId},</if>
+            <if test="settingType != null">SETTING_TYPE = #{settingType},</if>
+            <if test="settingName != null">SETTING_NAME = #{settingName},</if>
+            <if test="settingValue != null">SETTING_VALUE = #{settingValue},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="settingValueTwo != null">SETTING_VALUE_TWO = #{settingValueTwo},</if>
+            <if test="settingValueThree != null">SETTING_VALUE_THREE = #{settingValueThree},</if>
+            <if test="settingValueFour != null">SETTING_VALUE_FOUR = #{settingValueFour},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteNewWordsSettingById" parameterType="Integer">
+        delete from new_words_setting where ID = #{id}
+    </delete>
+
+    <delete id="deleteNewWordsSettingByIds" parameterType="String">
+        delete from new_words_setting where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

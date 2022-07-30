@@ -1,13 +1,15 @@
-package com.jeethink.study.domain;
+package com.jeethink.study.domain.assist;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jeethink.common.core.annotation.Excel;
+import com.jeethink.common.core.web.domain.BaseEntity;
+import com.jeethink.study.domain.Friends;
+import com.jeethink.study.domain.Means;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import com.jeethink.common.core.annotation.Excel;
-import com.jeethink.common.core.web.domain.BaseEntity;
 
 /**
  * 生词对象 new_words
@@ -15,7 +17,7 @@ import com.jeethink.common.core.web.domain.BaseEntity;
  * @author jeethink
  * @date 2022-04-08
  */
-public class NewWords extends BaseEntity
+public class NewWordsChallenge extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
@@ -43,7 +45,7 @@ public class NewWords extends BaseEntity
     private Integer rightTimes;
 
     /** 上一次正确时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "上一次正确时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date lastRigthTime;
 
@@ -74,48 +76,11 @@ public class NewWords extends BaseEntity
     /** 应战回复 */
     private String challengeReply;
 
-    /** 练习间隔时间 */
-    private int reqIntervalTimes;
-
-    /** 已经过去的时间 */
-    private int elapseTimes;
-
-    /** 要求练习次数 */
-    private int reqCount;
-
-    //自己
-    private String userName;
-
-    private String nickName;
-
-    private String avatar;
+    /** 应战者IDS（单词挑战） */
+    private List<Friends> challengeUserList;
 
 
-    public int getReqCount() {
-        return reqCount;
-    }
-
-    public void setReqCount(int reqCount) {
-        this.reqCount = reqCount;
-    }
-
-    public int getReqIntervalTimes() {
-        return reqIntervalTimes;
-    }
-
-    public void setReqIntervalTimes(int reqIntervalTimes) {
-        this.reqIntervalTimes = reqIntervalTimes;
-    }
-
-    public int getElapseTimes() {
-        return elapseTimes;
-    }
-
-    public void setElapseTimes(int elapseTimes) {
-        this.elapseTimes = elapseTimes;
-    }
-
-    public void setId(Long id)
+    public void setId(Long id) 
     {
         this.id = id;
     }
@@ -262,27 +227,11 @@ public class NewWords extends BaseEntity
         this.challengeReply = challengeReply;
     }
 
-    public String getUserName() {
-        return userName;
+    public List<Friends> getChallengeUserList() {
+        return challengeUserList;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setChallengeUserList(List<Friends> challengeUserList) {
+        this.challengeUserList = challengeUserList;
     }
 }

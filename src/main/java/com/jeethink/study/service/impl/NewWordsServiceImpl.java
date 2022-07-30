@@ -6,7 +6,9 @@ import java.util.Map;
 
 import com.jeethink.common.core.utils.DateUtils;
 import com.jeethink.study.domain.assist.FriendsDyn;
+import com.jeethink.study.domain.assist.HotWord;
 import com.jeethink.study.domain.assist.NewWordsCollect;
+import com.jeethink.study.domain.assist.NewWordsRank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.jeethink.study.mapper.NewWordsMapper;
@@ -162,4 +164,28 @@ public class NewWordsServiceImpl implements INewWordsService
     {
         return newWordsMapper.deleteNewWordsById(id);
     }
+
+    /**
+     * 查询热词列表
+     *
+     * @param count 生词
+     * @return 生词
+     */
+    @Override
+    public List<HotWord> listHots(Integer count)
+    {
+        return newWordsMapper.listHots(count);
+    }
+
+    /**
+     * 查询生词统计排行榜
+     * @param status 生词
+     * @return 生词
+     */
+    @Override
+    public List<NewWordsRank> selectRank(String status)
+    {
+        return newWordsMapper.selectRank(status);
+    }
+
 }

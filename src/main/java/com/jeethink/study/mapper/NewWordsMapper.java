@@ -5,7 +5,9 @@ import java.util.Map;
 
 import com.jeethink.study.domain.NewWords;
 import com.jeethink.study.domain.assist.FriendsDyn;
+import com.jeethink.study.domain.assist.HotWord;
 import com.jeethink.study.domain.assist.NewWordsCollect;
+import com.jeethink.study.domain.assist.NewWordsRank;
 
 /**
  * 生词Mapper接口
@@ -102,4 +104,20 @@ public interface NewWordsMapper
      * @return 结果
      */
     public int deleteNewWordsByIds(Long[] ids);
+
+    /**
+     * 查询热词列表
+     *
+     * @param count 生词
+     * @return 生词集合
+     */
+    public List<HotWord> listHots(Integer count);
+
+    /**
+     * 查询生词统计排行榜
+     *
+     * @param status 生词
+     * @return 生词集合
+     */
+    public List<NewWordsRank> selectRank(String status);
 }

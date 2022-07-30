@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f9f0fa-12e8-456e-a15e-00572cd4be3d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3ae217ed-6912-462f-a900-f48d5fbbb30e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,58 +9,37 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="jeethink-modules-study" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/WordsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="44" selection-start-line="44" selection-end-line="47" selection-end-column="31" />
-              <folding>
-                <element signature="e#4432#4433#0" expanded="true" />
-                <element signature="e#4462#4463#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1200">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1450">
-              <caret line="63" column="44" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="44" />
+            <state relative-caret-position="925">
+              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="184" column="13" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9875">
-              <caret line="395" column="16" selection-start-line="395" selection-start-column="16" selection-end-line="395" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/FriendsDyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1691#1692#0" expanded="true" />
-                <element signature="e#1724#1725#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="171">
+              <caret line="112" column="16" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -75,8 +47,79 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1250">
+              <caret line="57" column="44" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/ChineseCyController.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1125">
-              <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="13" />
+              <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/FriendsMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Friends.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="925">
+              <caret line="40" selection-start-line="40" selection-end-line="45" selection-end-column="26" />
+              <folding>
+                <element signature="e#2309#2310#0" expanded="true" />
+                <element signature="e#2341#2342#0" expanded="true" />
+                <element signature="e#2391#2392#0" expanded="true" />
+                <element signature="e#2433#2434#0" expanded="true" />
+                <element signature="e#2469#2470#0" expanded="true" />
+                <element signature="e#2501#2502#0" expanded="true" />
+                <element signature="e#2551#2552#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2627#2628#0" expanded="true" />
+                <element signature="e#2657#2658#0" expanded="true" />
+                <element signature="e#2703#2704#0" expanded="true" />
+                <element signature="e#2741#2742#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsRank.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="23" />
+              <folding>
+                <element signature="e#468#469#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#729#730#0" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#791#792#0" expanded="true" />
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+                <element signature="e#904#905#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1011#1012#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,8 +127,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1575">
-              <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+            <state relative-caret-position="3650">
+              <caret line="183" column="7" selection-start-line="183" selection-start-column="7" selection-end-line="183" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2075">
+              <caret line="90" column="25" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="25" />
+              <folding>
+                <element signature="e#5546#5547#0" expanded="true" />
+                <element signature="e#5577#5578#0" expanded="true" />
+                <element signature="e#5625#5626#0" expanded="true" />
+                <element signature="e#5665#5666#0" expanded="true" />
+                <element signature="e#5700#5701#0" expanded="true" />
+                <element signature="e#5731#5732#0" expanded="true" />
+                <element signature="e#5779#5780#0" expanded="true" />
+                <element signature="e#5819#5820#0" expanded="true" />
+                <element signature="e#5852#5853#0" expanded="true" />
+                <element signature="e#5881#5882#0" expanded="true" />
+                <element signature="e#5925#5926#0" expanded="true" />
+                <element signature="e#5961#5962#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,69 +160,51 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user</find>
-      <find>selectWordsList</find>
-      <find>selectNewWordsVo</find>
-      <find>means</find>
-      <find>请联系管理员授权</find>
-      <find>preAuthorizeException</find>
-      <find>listSuggest</find>
-      <find>createTime</find>
-      <find>selectNewWordsRandomList</find>
+      <find>NewWordsRandomResult</find>
       <find>voice</find>
-      <find>NewWordsResult</find>
-      <find>challengeStatus</find>
-      <find>NewWords</find>
-      <find>challenge_reply</find>
-      <find>practise_num</find>
-      <find>selectChallengeCollect</find>
-      <find>toString</find>
-      <find>challengeNum</find>
-      <find>order</find>
-      <find>challengePut</find>
-      <find>listTwoWay</find>
-      <find>addChallenge</find>
+      <find>selectNewWordsSettingList</find>
+      <find>listNewWordsRandom</find>
+      <find>updateFriends</find>
+      <find>selectWordsListSuggest</find>
+      <find>listSuggest</find>
+      <find>selectFriendsDyn</find>
+      <find>/code</find>
+      <find>令牌不能为空</find>
+      <find>selectFriendsVo</find>
+      <find>listRandom</find>
+      <find>selectNewWordsRandomList</find>
+      <find>SysUser</find>
+      <find>listEnglishWordsSuggest</find>
+      <find>dyn</find>
+      <find>selectRank</find>
     </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/ChineseCyMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/IWordsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/WordsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/WordsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Words.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Means.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/WordsController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/study/WordsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWordsCollect.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/bootstrap.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWordsRecords.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsRecordsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/FriendsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/IFriendsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/FriendsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/FriendsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsCollect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/HotWords.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/HotWord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsSettingService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsSettingController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsSettingMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/study/FriendsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsChallenge.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Friends.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/FriendsDyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsSettingServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsRank.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/study/FriendsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Friends.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/study/WordsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/WordsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/bootstrap.yml" />
       </list>
     </option>
   </component>
@@ -166,11 +214,6 @@
         <option name="localRepository" value="D:\java\apache-maven-3.2.5\repos_nexus" />
         <option name="userSettingsFile" value="D:\java\apache-maven-3.2.5\conf\settings_nexus.xml" />
       </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -185,29 +228,23 @@
           <item name="jeethink-modules-study" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="jeethink-modules-study" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
-        </path>
       </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-210" />
-    <option name="y" value="400" />
-    <option name="width" value="1190" />
-    <option name="height" value="1105" />
+    <option name="x" value="302" />
+    <option name="y" value="30" />
+    <option name="width" value="1509" />
+    <option name="height" value="985" />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,7 +307,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,27 +316,19 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1654354270767" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1658764040968" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jeethink/jeethink" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="settings.editor.splitter.proportion" value="0.23130608" />
+    <property name="project.structure.side.proportion" value="0.24609375" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jeethink.study.domain.assist" />
-      <recent name="com.jeethink.study.domain" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\jeethink-study\src\main\resources\mapper\study" />
-      <recent name="D:\jeethink-study\src\main\java\com\jeethink\study\service\impl" />
-      <recent name="D:\jeethink-study\src\main\java\com\jeethink\study\service" />
-      <recent name="D:\jeethink-study\src\main\java\com\jeethink\study\mapper" />
-      <recent name="D:\jeethink-study\src\main\java\com\jeethink\study\domain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -329,594 +357,354 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e5f9f0fa-12e8-456e-a15e-00572cd4be3d" name="Default Changelist" comment="" />
-      <created>1648476075869</created>
+      <changelist id="3ae217ed-6912-462f-a900-f48d5fbbb30e" name="Default Changelist" comment="" />
+      <created>1654502162923</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648476075869</updated>
-      <workItem from="1648476170783" duration="1487000" />
-      <workItem from="1648479099401" duration="1221000" />
-      <workItem from="1649083920357" duration="2171000" />
-      <workItem from="1649115992410" duration="912000" />
-      <workItem from="1649161807751" duration="1276000" />
-      <workItem from="1649169448328" duration="860000" />
-      <workItem from="1649336554437" duration="1747000" />
-      <workItem from="1649338434436" duration="2414000" />
-      <workItem from="1649430623162" duration="705000" />
-      <workItem from="1649469383780" duration="8972000" />
-      <workItem from="1649544736338" duration="10890000" />
-      <workItem from="1649686068848" duration="4825000" />
-      <workItem from="1649770292194" duration="1745000" />
-      <workItem from="1649945950496" duration="4160000" />
-      <workItem from="1650029113966" duration="593000" />
-      <workItem from="1650074294663" duration="5161000" />
-      <workItem from="1650200959145" duration="1349000" />
-      <workItem from="1650290452489" duration="592000" />
-      <workItem from="1650377475771" duration="598000" />
-      <workItem from="1650463275356" duration="1079000" />
-      <workItem from="1650640668165" duration="3920000" />
-      <workItem from="1650716359909" duration="1912000" />
-      <workItem from="1650807820406" duration="2091000" />
-      <workItem from="1650890396443" duration="2624000" />
-      <workItem from="1650925750804" duration="640000" />
-      <workItem from="1650981636071" duration="628000" />
-      <workItem from="1651153744696" duration="806000" />
-      <workItem from="1651193652330" duration="1458000" />
-      <workItem from="1651305653819" duration="1124000" />
-      <workItem from="1651394324175" duration="818000" />
-      <workItem from="1651458621530" duration="207000" />
-      <workItem from="1651570697786" duration="4751000" />
-      <workItem from="1651623339080" duration="21812000" />
-      <workItem from="1651714832667" duration="10489000" />
-      <workItem from="1651762046596" duration="1874000" />
-      <workItem from="1651828466011" duration="7300000" />
-      <workItem from="1651906057007" duration="8534000" />
-      <workItem from="1651939613905" duration="788000" />
-      <workItem from="1651982576070" duration="6023000" />
-      <workItem from="1652089113064" duration="5647000" />
-      <workItem from="1652146116162" duration="11794000" />
-      <workItem from="1652260391691" duration="4808000" />
-      <workItem from="1652355545332" duration="5734000" />
-      <workItem from="1652452502516" duration="690000" />
-      <workItem from="1652617870416" duration="6491000" />
-      <workItem from="1652796341135" duration="4190000" />
-      <workItem from="1652966020952" duration="1610000" />
-      <workItem from="1653054743632" duration="2501000" />
-      <workItem from="1653088378196" duration="659000" />
-      <workItem from="1653175247792" duration="2748000" />
-      <workItem from="1653403288198" duration="909000" />
-      <workItem from="1653481854167" duration="1476000" />
-      <workItem from="1654005771410" duration="4413000" />
-      <workItem from="1654159161803" duration="1545000" />
+      <updated>1654502162923</updated>
+      <workItem from="1654502164149" duration="835000" />
+      <workItem from="1654694451343" duration="1523000" />
+      <workItem from="1654773335597" duration="1923000" />
+      <workItem from="1654866658492" duration="3069000" />
+      <workItem from="1654916266815" duration="1511000" />
+      <workItem from="1654987215536" duration="11087000" />
+      <workItem from="1655021746361" duration="11997000" />
+      <workItem from="1655125867854" duration="4636000" />
+      <workItem from="1655217461637" duration="619000" />
+      <workItem from="1655304938929" duration="1839000" />
+      <workItem from="1655389788663" duration="1807000" />
+      <workItem from="1655474707563" duration="1860000" />
+      <workItem from="1655505242704" duration="6088000" />
+      <workItem from="1655596321229" duration="3023000" />
+      <workItem from="1655638410662" duration="3656000" />
+      <workItem from="1655734536094" duration="1314000" />
+      <workItem from="1655899834597" duration="2177000" />
+      <workItem from="1655994641165" duration="695000" />
+      <workItem from="1655998685977" duration="502000" />
+      <workItem from="1656075703466" duration="1557000" />
+      <workItem from="1656114228972" duration="2445000" />
+      <workItem from="1656213880413" duration="1011000" />
+      <workItem from="1656239003616" duration="2813000" />
+      <workItem from="1656339269619" duration="708000" />
+      <workItem from="1656418542410" duration="2219000" />
+      <workItem from="1656684358537" duration="3059000" />
+      <workItem from="1656713929798" duration="1291000" />
+      <workItem from="1656770083571" duration="3274000" />
+      <workItem from="1656806448331" duration="2795000" />
+      <workItem from="1656860300622" duration="674000" />
+      <workItem from="1656940742296" duration="1539000" />
+      <workItem from="1657023937412" duration="701000" />
+      <workItem from="1657115097961" duration="1028000" />
+      <workItem from="1657196618065" duration="2409000" />
+      <workItem from="1657329073092" duration="8115000" />
+      <workItem from="1657418025482" duration="3587000" />
+      <workItem from="1657636895510" duration="718000" />
+      <workItem from="1657666432781" duration="1325000" />
+      <workItem from="1657716075120" duration="706000" />
+      <workItem from="1657810249978" duration="703000" />
+      <workItem from="1657983478127" duration="1033000" />
+      <workItem from="1658049680949" duration="1543000" />
+      <workItem from="1658146631191" duration="1426000" />
+      <workItem from="1658414998688" duration="662000" />
+      <workItem from="1658502759446" duration="990000" />
+      <workItem from="1658534219621" duration="964000" />
+      <workItem from="1658761868617" duration="794000" />
+      <workItem from="1659169805488" duration="1792000" />
     </task>
-    <task id="LOCAL-00001" summary="suggest word 提交2">
-      <created>1649690173147</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1649690173147</updated>
-    </task>
-    <task id="LOCAL-00002" summary="suggest word 提交2">
-      <created>1649690308730</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1649690308730</updated>
-    </task>
-    <task id="LOCAL-00003" summary="suggest word 提交2">
-      <created>1649770595680</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1649770595680</updated>
-    </task>
-    <task id="LOCAL-00004" summary="练习生词记录后台代码提交">
-      <created>1649948373073</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1649948373073</updated>
-    </task>
-    <task id="LOCAL-00005" summary="练习生词记录后台代码提交2">
-      <created>1649948752580</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1649948752580</updated>
-    </task>
-    <task id="LOCAL-00006" summary="生词统计功能">
-      <created>1650101063234</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1650101063234</updated>
-    </task>
-    <task id="LOCAL-00007" summary="生词统计功能">
-      <created>1650101421429</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1650101421429</updated>
-    </task>
-    <task id="LOCAL-00008" summary="生词统计功能">
-      <created>1650101969873</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1650101969873</updated>
-    </task>
-    <task id="LOCAL-00009" summary="英语生词学习代码提交V1.0">
-      <created>1652622515824</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652622515824</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185564000" />
+    <option name="totallyTimeSpent" value="112042000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7746741" visible="true" weight="0.18699732" />
-      <window_info id="Structure" order="1" sideWeight="0.22532588" side_tool="true" visible="true" weight="0.18699732" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.18336888" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.50140846" side_tool="true" weight="0.17910448" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30726257" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.28199565" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27440348" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.19553073" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Spring" order="12" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.3282123" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4989339" weight="0.21800433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.07372654" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.08528785" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.22867803" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="suggest word 提交2" />
-    <MESSAGE value="练习生词记录后台代码提交" />
-    <MESSAGE value="练习生词记录后台代码提交2" />
-    <MESSAGE value="生词统计功能" />
-    <MESSAGE value="英语生词学习代码提交V1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="英语生词学习代码提交V1.0" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/MeansMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/HotWord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="400">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="e#1496#1497#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1624#1625#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/PosServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/MeansServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="125">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/ChineseCyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsRecordsMapper.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsRecordsServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/FriendsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/WordsServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsSettingServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+        <state relative-caret-position="2300">
+          <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Pos.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsSettingMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4100">
-          <caret line="164" column="24" selection-start-line="164" selection-start-column="24" selection-end-line="164" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/JeeThinkStudyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="215">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/WordsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        <state relative-caret-position="150">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/IWordsService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsSettingService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/ChineseCyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/org/springframework/spring-core/5.2.9.RELEASE/spring-core-5.2.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/org/springframework/spring-aop/5.2.9.RELEASE/spring-aop-5.2.9.RELEASE.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/org/springframework/spring-aop/5.2.9.RELEASE/spring-aop-5.2.9.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="432" selection-start-line="432" selection-end-line="432" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/org/springframework/spring-aop/5.2.9.RELEASE/spring-aop-5.2.9.RELEASE.jar!/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/com/jeethink/jeethink-common-security/2.2.0/jeethink-common-security-2.2.0.jar!/com/jeethink/common/security/aspect/PreAuthorizeAspect.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Means.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Words.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="39" selection-start-line="39" selection-end-line="40" selection-end-column="34" />
-          <folding>
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1930#1931#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
-            <element signature="e#2027#2028#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/com/jeethink/jeethink-common-core/2.2.0/jeethink-common-core-2.2.0.jar!/com/jeethink/common/core/web/domain/AjaxResult.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/org/springframework/spring-aop/5.2.9.RELEASE/spring-aop-5.2.9.RELEASE.jar!/org/springframework/aop/aspectj/AbstractAspectJAdvice.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8925">
-          <caret line="414" selection-start-line="414" selection-end-line="414" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/com/jeethink/jeethink-common-core/2.2.0/jeethink-common-core-2.2.0.jar!/com/jeethink/common/core/web/domain/BaseEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/WordsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/ChineseCy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsRecordsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWordsRecords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="34" />
-          <folding>
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1448#1449#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-            <element signature="e#1560#1561#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
-            <element signature="e#1693#1694#0" expanded="true" />
-            <element signature="e#1755#1756#0" expanded="true" />
-            <element signature="e#1809#1810#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsRecordsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1750">
-          <caret line="95" column="13" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/IFriendsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="35" column="48" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/FriendsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/FriendsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="55" column="52" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsCollect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2725">
-          <caret line="172" column="49" selection-start-line="172" selection-start-column="49" selection-end-line="172" selection-end-column="49" />
-          <folding>
-            <element signature="e#3590#3591#0" expanded="true" />
-            <element signature="e#3629#3630#0" expanded="true" />
-            <element signature="e#3693#3694#0" expanded="true" />
-            <element signature="e#3749#3750#0" expanded="true" />
-            <element signature="e#3792#3793#0" expanded="true" />
-            <element signature="e#3831#3832#0" expanded="true" />
-            <element signature="e#3895#3896#0" expanded="true" />
-            <element signature="e#3951#3952#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsSettingMapper.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../java/apache-maven-3.2.5/repos_nexus/com/jeethink/jeethink-common-core/2.2.0/jeethink-common-core-2.2.0.jar!/com/jeethink/common/core/web/controller/BaseController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-          <folding>
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2425">
-          <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1525">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWordsSetting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+        <state relative-caret-position="25">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsSettingService.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsSettingMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsCollect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsSettingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/FriendsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsChallenge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="231" column="5" selection-start-line="231" selection-start-column="5" selection-end-line="231" selection-end-column="5" />
-          <folding>
-            <element signature="e#4949#4950#0" expanded="true" />
-            <element signature="e#4989#4990#0" expanded="true" />
-            <element signature="e#5062#5063#0" expanded="true" />
-            <element signature="e#5120#5121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/WordsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Friends.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="41" selection-start-line="41" selection-end-line="43" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1858#1859#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1977#1978#0" expanded="true" />
-            <element signature="e#2012#2013#0" expanded="true" />
-            <element signature="e#2043#2044#0" expanded="true" />
-            <element signature="e#2091#2092#0" expanded="true" />
-            <element signature="e#2131#2132#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2146">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/FriendsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="44" selection-start-line="44" selection-end-line="47" selection-end-column="31" />
-          <folding>
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4462#4463#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="50">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/mapper/NewWordsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
-          <caret line="63" column="44" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="44" />
+        <state relative-caret-position="2850">
+          <caret line="121" column="40" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsSettingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9875">
-          <caret line="395" column="16" selection-start-line="395" selection-start-column="16" selection-end-line="395" selection-end-column="16" />
+        <state relative-caret-position="631">
+          <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/FriendsDyn.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="5350">
+          <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/WordsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2450">
+          <caret line="127" column="34" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/WordsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1691#1692#0" expanded="true" />
-            <element signature="e#1724#1725#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/INewWordsService.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/ChineseCyController.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="13" />
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/FriendsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/Friends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="40" selection-start-line="40" selection-end-line="45" selection-end-column="26" />
+          <folding>
+            <element signature="e#2309#2310#0" expanded="true" />
+            <element signature="e#2341#2342#0" expanded="true" />
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2433#2434#0" expanded="true" />
+            <element signature="e#2469#2470#0" expanded="true" />
+            <element signature="e#2501#2502#0" expanded="true" />
+            <element signature="e#2551#2552#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2627#2628#0" expanded="true" />
+            <element signature="e#2657#2658#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2741#2742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/assist/NewWordsRank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/service/impl/NewWordsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+        <state relative-caret-position="3650">
+          <caret line="183" column="7" selection-start-line="183" selection-start-column="7" selection-end-line="183" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/controller/NewWordsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeethink/study/domain/NewWords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="184" column="13" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="13" />
+        <state relative-caret-position="2075">
+          <caret line="90" column="25" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="e#5546#5547#0" expanded="true" />
+            <element signature="e#5577#5578#0" expanded="true" />
+            <element signature="e#5625#5626#0" expanded="true" />
+            <element signature="e#5665#5666#0" expanded="true" />
+            <element signature="e#5700#5701#0" expanded="true" />
+            <element signature="e#5731#5732#0" expanded="true" />
+            <element signature="e#5779#5780#0" expanded="true" />
+            <element signature="e#5819#5820#0" expanded="true" />
+            <element signature="e#5852#5853#0" expanded="true" />
+            <element signature="e#5881#5882#0" expanded="true" />
+            <element signature="e#5925#5926#0" expanded="true" />
+            <element signature="e#5961#5962#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/study/NewWordsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="112" column="16" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -960,7 +748,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -976,7 +764,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.24609375" />
                 <option value="0.6" />
               </list>
             </option>
@@ -1001,7 +789,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.24609375" />
               </list>
             </option>
           </splitter-proportions>

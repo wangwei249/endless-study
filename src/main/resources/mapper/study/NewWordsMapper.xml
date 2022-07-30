@@ -93,6 +93,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="NewWords" id="NewWordsRandomResult">
         <result property="id"    column="ID"    />
         <result property="userId"    column="USER_ID"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="avatar"    column="avatar"    />
         <result property="wordId"    column="WORD_ID"    />
         <result property="status"    column="STATUS"    />
         <result property="wrongTimes"    column="WRONG_TIMES"    />
@@ -112,6 +115,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              SELECT
                   n.ID,
                   n.USER_ID,
+                    u.`user_name`,
+                    u.`nick_name`,
+                    u.`avatar`,
                   n.WORD_ID,
                   n.STATUS,
                   n.WRONG_TIMES,
@@ -134,6 +140,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
               LEFT JOIN new_words_setting s2 ON n.`RIGHT_TIMES`+1 = s2.`SETTING_NAME`
                   AND s2.`SETTING_TYPE` = 'memory_method' AND s2.`USER_ID` = n.`USER_ID`
 
+              LEFT JOIN sys_user u ON n.`USER_ID` = u.`user_id`
+
         <where>
            <if test="id != null "> and n.ID = #{id}</if>
            <if test="userId != null "> and n.USER_ID = #{userId} </if>
@@ -148,7 +156,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              ]]>
            </if>
         </where>
-        <if test="challengeId == null "> ORDER BY RAND() </if>
+        <if test="challengeId == null "> ORDER BY RAND() LIMIT  10</if>
     </select>
 
     <resultMap type="Means" id="MeansByWordIDResultMap">
@@ -395,25 +403,99 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                     ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
     </resultMap>
     <select id="selectFriendsDyn" parameterType="NewWords" resultMap="FriendsDynResult">
-         SELECT
-              f.`FRIEND_ID`,
-              u.`user_name`,
-              u.`nick_name`,
-              n.`WORD_ID`,
-              w.`word`,
-              n.`create_time`
+            SELECT
+             A.FRIEND_ID,
+             A.user_name,
+             A.nick_name,
+             A.WORD_ID,
+             A.word,
+             A.create_time
+            FROM (
+            SELECT
+                          f.`FRIEND_ID`,
+                          u.`user_name`,
+                          u.`nick_name`,
+                          n.`WORD_ID`,
+                          w.`word`,
+                          n.`create_time`
+                        FROM
+                          friends f
+                          LEFT JOIN sys_user u
+                            ON f.`FRIEND_ID` = u.`user_id`
+                          LEFT JOIN new_words n
+                            ON f.`FRIEND_ID` = n.`USER_ID`
+                          LEFT JOIN words w
+                            ON n.`WORD_ID` = w.`ID`
+                        WHERE  f.`USER_ID` = #{USER_ID}
+                          AND n.`WORD_ID` IS NOT NULL
+
+               UNION ALL
+                  SELECT
+                          f.`user_id`,
+                          u.`user_name`,
+                          u.`nick_name`,
+                          n.`WORD_ID`,
+                          w.`word`,
+                          n.`create_time`
+                        FROM
+                          friends f
+                          LEFT JOIN sys_user u
+                            ON f.`USER_ID` = u.`user_id`
+                          LEFT JOIN new_words n
+                            ON f.`user_id` = n.`USER_ID`
+                          LEFT JOIN words w
+                            ON n.`WORD_ID` = w.`ID`
+                        WHERE  f.`FRIEND_ID` = #{USER_ID}
+                          AND n.`WORD_ID` IS NOT NULL
+               ) A
+
+            ORDER BY A.`create_time` DESC
+            LIMIT 6
+    </select>
+
+
+    <resultMap type="HotWord" id="HotWordsResult">
+        <result property="wordId"    column="WORD_ID"    />
+        <result property="word"    column="word"    />
+        <result property="totalCount"    column="totalCount"    />
+        <result property="voice"    column="voice"    />
+        <collection property="meansList" column="WORD_ID" javaType="ArrayList"
+                    ofType="com.jeethink.study.domain.Means" select="getMeansByWordID"/>
+    </resultMap>
+    <select id="listHots" parameterType="java.lang.Integer" resultMap="HotWordsResult">
+        SELECT
+            n.`WORD_ID`,
+            n.totalCount,
+            w.`word`
             FROM
-              friends f
-              LEFT JOIN sys_user u
-                ON f.`FRIEND_ID` = u.`user_id`
-              LEFT JOIN new_words n
-                ON f.`FRIEND_ID` = n.`USER_ID`
-              LEFT JOIN words w
-                ON n.`WORD_ID` = w.`ID`
-            WHERE f.`USER_ID` = #{USER_ID}
-              AND n.`WORD_ID` IS NOT NULL
-            ORDER BY n.`create_time` DESC
-            LIMIT 10
+
+            (SELECT w1.`WORD_ID`, COUNT(1) totalCount
+            FROM new_words w1
+            WHERE w1.`challenge_id` IS NULL
+            GROUP BY w1.`WORD_ID`  ORDER BY totalCount) n
+
+            LEFT JOIN words w ON n.`WORD_ID` = w.`ID`
+
+            LIMIT #{status}
+
+    </select>
+
+
+
+    <resultMap type="NewWordsRank" id="RankResult">
+        <result property="userId"    column="USER_ID"    />
+        <result property="userName"    column="nick_name"    />
+        <result property="allNum"    column="cnt"    />
+    </resultMap>
+    <select id="selectRank" parameterType="java.lang.String" resultMap="RankResult">
+        SELECT n.`USER_ID`,s.`nick_name`,COUNT(1) cnt
+               FROM new_words n
+                 LEFT JOIN sys_user s ON n.`USER_ID` = s.`user_id`
+                 WHERE n.`challenge_id` IS NULL
+                <if test="status != null and status != 'null'"> and n.STATUS = #{status}</if>
+                 GROUP BY n.`USER_ID`,s.`nick_name`  ORDER BY cnt DESC
+                 LIMIT 10
+
     </select>
     
 </mapper>

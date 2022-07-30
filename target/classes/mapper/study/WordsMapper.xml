@@ -45,8 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectWordsVoSuggest"/>
         <where>
             <if test="word != null  and word != '' and word != 'RD3'"> and word like concat(#{word}, '%') </if>
-            limit  5
         </where>
+        ORDER BY RAND()  LIMIT  41
 
     </select>
 

@@ -9,8 +9,5 @@
         <module name="jeethink-modules-study" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="jeethink-modules-study" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

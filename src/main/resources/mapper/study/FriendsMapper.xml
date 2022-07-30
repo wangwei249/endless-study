@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeethink.study.mapper.FriendsMapper">
+    
+    <resultMap type="Friends" id="FriendsResult">
+        <result property="id"    column="ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="friendId"    column="FRIEND_ID"    />
+        <result property="status"    column="STATUS"    />
+        <result property="reqMsg"    column="req_msg"    />
+        <result property="replyMsg"    column="reply_msg"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="fuserName"    column="fuser_name"    />
+        <result property="fnickName"    column="fnick_name"    />
+        <result property="favatar"    column="favatar"    />
+    </resultMap>
+
+    <sql id="selectFriendsVo">
+        SELECT f.ID, f.USER_ID, f.FRIEND_ID, f.STATUS, f.req_msg, f.reply_msg, f.update_time,
+        f.create_time, f.remark ,s.`user_name`,s.`nick_name`,s.`avatar`,
+         u.`user_name` fuser_name,u.`nick_name` fnick_name ,u.`avatar` favatar
+               FROM friends f
+                  LEFT JOIN sys_user s ON f.`FRIEND_ID` = s.`user_id`
+                  LEFT JOIN sys_user u ON f.`USER_ID` = u.`user_id`
+    </sql>
+
+    <select id="selectFriendsList" parameterType="Friends" resultMap="FriendsResult">
+        <include refid="selectFriendsVo"/>
+        <where>  
+            <if test="userId != null "> and f.USER_ID = #{userId}</if>
+            <if test="friendId != null "> and f.FRIEND_ID = #{friendId}</if>
+            <if test="status != null  and status != ''"> and f.STATUS = #{status}</if>
+            <if test="reqMsg != null  and reqMsg != ''"> and f.req_msg = #{reqMsg}</if>
+            <if test="replyMsg != null  and replyMsg != ''"> and f.reply_msg = #{replyMsg}</if>
+        </where>
+    </select>
+
+
+    <resultMap type="Friends" id="FriendsTwoWayResult">
+        <result property="id"    column="ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="friendId"    column="FRIEND_ID"    />
+        <result property="status"    column="STATUS"    />
+        <result property="reqMsg"    column="req_msg"    />
+        <result property="replyMsg"    column="reply_msg"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+    </resultMap>
+    <select id="selectFriendsListTwoWay" parameterType="Friends" resultMap="FriendsTwoWayResult">
+        SELECT
+                A.friend_id,
+                t.`user_name`,
+                t.`nick_name`
+                FROM
+                (SELECT
+                f.`FRIEND_ID` friend_id,
+                f.`STATUS`
+                FROM
+                friends f
+                WHERE f.`USER_ID` = #{userId}
+                UNION
+                SELECT
+                f.`USER_ID` friend_id,
+                f.`STATUS`
+                FROM
+                friends f
+                WHERE f.`FRIEND_ID` = #{userId}) A
+                LEFT JOIN sys_user t
+                ON A.friend_id = t.`user_id`
+        <where>
+            <if test="status != null  and status != ''"> and A.STATUS = #{status}</if>
+            <if test="userName != null  and userName != ''">
+             and (t.USER_NAME like concat('%',#{userName},'%') or  t.NICK_NAME like concat('%',#{userName},'%'))
+            </if>
+        </where>
+    </select>
+
+
+    
+    <select id="selectFriendsById" parameterType="Long" resultMap="FriendsResult">
+        <include refid="selectFriendsVo"/>
+        where f.ID = #{id}
+    </select>
+        
+    <insert id="insertFriends" parameterType="Friends" useGeneratedKeys="true" keyProperty="id">
+        insert into friends
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="friendId != null">FRIEND_ID,</if>
+            <if test="status != null">STATUS,</if>
+            <if test="reqMsg != null">req_msg,</if>
+            <if test="replyMsg != null">reply_msg,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="friendId != null">#{friendId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="reqMsg != null">#{reqMsg},</if>
+            <if test="replyMsg != null">#{replyMsg},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFriends" parameterType="Friends">
+        update friends
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">USER_ID = #{userId},</if>
+            <if test="friendId != null">FRIEND_ID = #{friendId},</if>
+            <if test="status != null">STATUS = #{status},</if>
+            <if test="reqMsg != null">req_msg = #{reqMsg},</if>
+            <if test="replyMsg != null">reply_msg = #{replyMsg},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteFriendsById" parameterType="Long">
+        delete from friends where ID = #{id}
+    </delete>
+
+    <delete id="deleteFriendsByIds" parameterType="String">
+        delete from friends where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
